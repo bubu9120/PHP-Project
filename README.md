@@ -8,3 +8,6 @@ Um dies zu erreichen, haben wir eine Kombination von Arbeitsplätzen gewählt, d
 Für die Umsetzung unseres Projekts nutzen wir verschiedene Hilfsmittel wie Figma zur Erstellung von Mockups und Github für die Projektplanung und Code-Implementierung.
 
 Die Vorteile unseres Projekts gelten für alle, die vor der Entscheidung stehen, ein neues Gerät zu evaluieren. Mit unserer Website wollen wir diesen Menschen eine praktische und effiziente Lösung bieten, um fundierte Entscheidungen zu treffen und das richtige Gerät für sie auszuwählen. Wir sind überzeugt, dass unser Projekt einen wichtigen Beitrag zur Vereinfachung und Verbesserung der Auswahl und des Kaufs von technischen Geräten leisten wird.
+
+Projektplan Metadaten:
+-Zeitraum
