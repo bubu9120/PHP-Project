@@ -1,0 +1,53 @@
+/* Style the form */
+form {
+  margin: 100px auto;
+  padding: 50px;
+  width: 25%;
+  min-width: 300px;
+}
+
+/* Style the form content */
+.form-content {
+  overflow: hidden;
+  clear: both;
+}
+
+/* Style the fieldsets */
+fieldset {
+  background-color: #eef;
+}
+
+/* Style the input fields */
+button,
+datalist,
+fieldset,
+input,
+legend,
+optgroup,
+option,
+output,
+select,
+textarea {
+  padding: 10px;
+  font-size: 1em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: 1px solid #777;
+}
+
+/* Style the labels */
+label {
+  font-size: 1em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.back-button {
+  float: right;
+  color: #777;
+  background-color: #eef;
+}
+
+/* Style the error messages */
+.error-text {
+  color: #f00;
+  grid-column-start: 2;
+}
