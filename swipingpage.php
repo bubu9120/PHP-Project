@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
     <form method="post" action="">
         <fieldset id="step-2">
             <div class="formContent">
-                <h2>2 - Adresse</h2>
+                <h2>2 - Adressezzzz</h2>
                 <p>
                     <label for="address">Adresse</label><br />
                     <input type="text" id="address" name="address" minlength="2" maxlength="99" value="<?= $_SESSION["address"] ?? ""; ?>" autofocus>
