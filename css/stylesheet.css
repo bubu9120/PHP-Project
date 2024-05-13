@@ -19,6 +19,12 @@ p {
   font-family: Arial, Helvetica, sans-serif;
 }
 /* banner */
+#banner-no-image {
+  height: 75vh;
+  display: flex;
+  background-color: black;
+}
+
 #banner {
   background-image: url("../img/banner_index_widescreen.svg");
   background-size: cover;
@@ -94,10 +100,20 @@ footer p:first-child {
   flex-grow: 1; /* Lasse den ersten Text wachsen */
   flex-shrink: 0; /* Verhindere, dass der erste Text schrumpft */
 }
-
-/* 
-smartphone */
-
+/* bannertext */
+.hellotext {
+  text-shadow: 0 0 5.5px white;
+  position: absolute;
+  left: 100px;
+  top: 88px;
+}
+/* progressbar */
+progress {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+/*smartphone */
 @media only screen and (max-width: 480px) {
   .index-text-container {
     margin: 50px;
