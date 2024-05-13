@@ -7,291 +7,413 @@ $error_zip = "";
 $error_city = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
-    ini_set("display_errors", 1);
-    error_reporting(E_ALL);
-    $hasError = false;
+  ini_set("display_errors", 1);
+  error_reporting(E_ALL);
+  $hasError = false;
 
-    if (strlen($_POST["address"]) > 1 && strlen($_POST["address"]) < 100) {
-        $_SESSION["address"] = htmlspecialchars(trim($_POST["address"]));
-    } else {
-        $error_address = "Bitte geben Sie die Adresse ein.";
-        $hasError = true;
-    }
+  if (strlen($_POST["address"]) > 1 && strlen($_POST["address"]) < 100) {
+    $_SESSION["address"] = htmlspecialchars(trim($_POST["address"]));
+  } else {
+    $error_address = "Bitte geben Sie die Adresse ein.";
+    $hasError = true;
+  }
 
-    if (strlen($_POST["zip"]) == 4) {
-        $_SESSION["zip"] = htmlspecialchars($_POST["zip"]);
-    } else {
-        $error_zip = "Bitte geben Sie eine vierstellige Postleitzahl ein.";
-        $hasError = true;
-    }
+  if (strlen($_POST["zip"]) == 4) {
+    $_SESSION["zip"] = htmlspecialchars($_POST["zip"]);
+  } else {
+    $error_zip = "Bitte geben Sie eine vierstellige Postleitzahl ein.";
+    $hasError = true;
+  }
 
-    if (strlen($_POST["city"]) > 1 && strlen($_POST["city"]) < 100) {
-        $_SESSION["city"] = htmlspecialchars(trim($_POST["city"]));
-    } else {
-        $error_city = "Bitte geben Sie den Ort ein.";
-        $hasError = true;
-    }
+  if (strlen($_POST["city"]) > 1 && strlen($_POST["city"]) < 100) {
+    $_SESSION["city"] = htmlspecialchars(trim($_POST["city"]));
+  } else {
+    $error_city = "Bitte geben Sie den Ort ein.";
+    $hasError = true;
+  }
 
-    if (!$hasError) {
-        header('Location: ./step-3.php');
-        exit();
-    }
+  if (!$hasError) {
+    header('Location: ./step-3.php');
+    exit();
+  }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="css/stylesheet.css">
+  <link rel="stylesheet" href="css/swipe.css">
+
+
 </head>
 
 <body>
-    
 
-    <div id="banner-no-image">
+  <div id="banner-no-image">
+
+    <!-- card1 -->
+    <div class="card-cont">
+      <div class="card">
+        <div class="card__top brown">
+          <div class="card__img"></div>
+          <p class="card_question">Question 6</p>
+        </div>
+        <div class="card__btm">
+          <p class="card__we">Whatever</p>
+        </div>
+        <div class="card__choice m--reject"></div>
+        <div class="card__choice m--like"></div>
+        <div class="card__drag"></div>
+      </div>
+      <!-- card2 -->
+      <div class="card">
+        <div class="card__top lime">
+          <div class="card__img"></div>
+          <p class="card_question">Question 5</p>
+        </div>
+        <div class="card__btm">
+          <p class="card__we">Whatever</p>
+        </div>
+        <div class="card__choice m--reject"></div>
+        <div class="card__choice m--like"></div>
+        <div class="card__drag"></div>
+      </div>
+      <!-- card3 -->
+      <div class="card">
+        <div class="card__top cyan">
+          <div class="card__img"></div>
+          <p class="card_question">Question 4</p>
+        </div>
+        <div class="card__btm">
+          <p class="card__we">Whatever</p>
+        </div>
+        <div class="card__choice m--reject"></div>
+        <div class="card__choice m--like"></div>
+        <div class="card__drag"></div>
+      </div>
+      <!-- card4 -->
+      <div class="card">
+        <div class="card__top indigo">
+          <div class="card__img"></div>
+          <p class="card_question">Question 3</p>
+        </div>
+        <div class="card__btm">
+          <p class="card__we">Whatever</p>
+        </div>
+        <div class="card__choice m--reject"></div>
+        <div class="card__choice m--like"></div>
+        <div class="card__drag"></div>
+      </div>
+      <!-- card5 -->
+      <div class="card">
+        <div class="card__top blue">
+          <div class="card__img"></div>
+          <p class="card_question">Question 2</p>
+        </div>
+        <div class="card__btm">
+          <p class="card__we">Whatever</p>
+        </div>
+        <div class="card__choice m--reject"></div>
+        <div class="card__choice m--like"></div>
+        <div class="card__drag"></div>
+      </div>
+      <!-- card6 -->
+      <div class="card">
+        <div class="card__top purple">
+          <div class="card__img"></div>
+          <p class="card_question">Question</p>
+        </div>
+        <div class="card__btm">
+          <p class="card__we">Whatever</p>
+        </div>
+        <div class="card__choice m--reject"></div>
+        <div class="card__choice m--like"></div>
+        <div class="card__drag"></div>
+      </div>
+    </div>
+
+  </div>
+  <div id="banner-bottom">
+    <button id="start">
+      <h3>start evaluation</h3>
+      <img src="img/gesture-double-tap.svg" alt="" />
+    </button>
+  </div>
+  <?php include "footer.php" ?>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/swipe.js"></script>
+
+</body>
+
+</html>
+
+
+<style>
+
+</style>
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="css/stylesheet.css">
+
+<body>
+
+
+  <div id="banner-no-image">
+
 
     <div class="allSwipe">
-<!-- Question 1 -->
 
-<div class="box1 box">
-    <form method="post" action="">
-       
-            <div class="formContent">
-                <h2>Is it your first device?</h2>
-                <p>Are you looking for a new device for the first time?</p>
+      <div class="box1 box">
+        <form method="post" action="">
 
-                <img src="" alt="display of different devices">
+          <div class="formContent">
+            <h2>Is it your first device?</h2>
+            <p>Are you looking for a new device for the first time?</p>
 
-
-<label class="radio-label yesRadio">
-  <img src="img1.png" alt="Yes">
-  <input type="radio" name="qone" value="yes">
-</label>
-<label class="radio-label noRadio">
-  <img src="img2.png" alt="No">
-  <input type="radio" name="qone" value="no">
-</label>
-
-            </div>
-      
-    </form>
-</div>
-  
-
-<!-- Question 2 -->
-
-<div class="box2 box">
-    <form method="post" action="">
-       
-            <div class="formContent">
-                <h2>Do you leave the device primarily in one place?</h2>
-                <p>Are you looking to work on the device on the go?</p>
-
-                <img src="" alt="beschreibung des Bildes">
+            <img src="" alt="display of different devices">
 
 
-<label class="radio-label yesRadio">
-  <img src="img1.png" alt="Yes">
-  <input type="radio" name="qtwo" value="yes">
-</label>
-<label class="radio-label noRadio">
-  <img src="img2.png" alt="No">
-  <input type="radio" name="qtwo" value="no">
-</label>
+            <label class="radio-label yesRadio">
+              <img src="img1.png" alt="Yes">
+              <input type="radio" name="qone" value="yes">
+            </label>
+            <label class="radio-label noRadio">
+              <img src="img2.png" alt="No">
+              <input type="radio" name="qone" value="no">
+            </label>
 
-            </div>
-      
-    </form>
-</div>
-
-
-
-<!-- Question 3 -->
-
-<div class="box3 box">
-    <form method="post" action="">
-       
-            <div class="formContent">
-                <h2>Would you like to edit videos with the device?</h2>
-                <p>Do you often work on video projects?</p>
-
-                <img src="" alt="beschreibung des Bildes">
-
-
-<label class="radio-label yesRadio">
-  <img src="img1.png" alt="Yes">
-  <input type="radio" name="qthree" value="yes">
-</label>
-<label class="radio-label noRadio">
-  <img src="img2.png" alt="No">
-  <input type="radio" name="qthree" value="no">
-</label>
-
-            </div>
-      
-    </form>
-</div>
-
-<!-- Question 4 -->
-
-<div class="box4 box">
-    <form method="post" action="">
-       
-            <div class="formContent">
-                <h2>Is your budget higher than 1700.- CHF?</h2>
-                <p>Do you choose quality over budget?</p>
-
-                <img src="" alt="beschreibung des Bildes">
-
-
-<label class="radio-label yesRadio">
-  <img src="img1.png" alt="Yes">
-  <input type="radio" name="qfour" value="yes">
-</label>
-<label class="radio-label noRadio">
-  <img src="img2.png" alt="No">
-  <input type="radio" name="qfour" value="no">
-</label>
           </div>
-      
-    </form>
-</div>
 
-
-<!-- Question 5 -->
-
-<div class="box5 box">
-    <form method="post" action="">
-       
-            <div class="formContent">
-                <h2>Are your task mainly office tasks like mailing, word, edit small ecxel files?</h2>
-                <p>Do you look for a Laptop just for office tasks?</p>
-
-                <img src="" alt="beschreibung des Bildes">
-
-
-<label class="radio-label yesRadio">
-  <img src="img1.png" alt="Yes">
-  <input type="radio" name="qfive" value="yes">
-</label>
-<label class="radio-label noRadio">
-  <img src="img2.png" alt="No">
-  <input type="radio" name="qfive" value="no">
-</label>
-            </div>
-      
-    </form>
-</div>
-</div>
-
-</div>
-
-    <?php include "footer.php" ?>
+        </form>
+      </div>
 
 
 
-  </body>
+
+      <div class="box2 box">
+        <form method="post" action="">
+
+          <div class="formContent">
+            <h2>Do you leave the device primarily in one place?</h2>
+            <p>Are you looking to work on the device on the go?</p>
+
+            <img src="" alt="beschreibung des Bildes">
+
+
+            <label class="radio-label yesRadio">
+              <img src="img1.png" alt="Yes">
+              <input type="radio" name="qtwo" value="yes">
+            </label>
+            <label class="radio-label noRadio">
+              <img src="img2.png" alt="No">
+              <input type="radio" name="qtwo" value="no">
+            </label>
+
+          </div>
+
+        </form>
+      </div>
+
+
+
+
+
+      <div class="box3 box">
+        <form method="post" action="">
+
+          <div class="formContent">
+            <h2>Would you like to edit videos with the device?</h2>
+            <p>Do you often work on video projects?</p>
+
+            <img src="" alt="beschreibung des Bildes">
+
+
+            <label class="radio-label yesRadio">
+              <img src="img1.png" alt="Yes">
+              <input type="radio" name="qthree" value="yes">
+            </label>
+            <label class="radio-label noRadio">
+              <img src="img2.png" alt="No">
+              <input type="radio" name="qthree" value="no">
+            </label>
+
+          </div>
+
+        </form>
+      </div>
+
+
+
+      <div class="box4 box">
+        <form method="post" action="">
+
+          <div class="formContent">
+            <h2>Is your budget higher than 1700.- CHF?</h2>
+            <p>Do you choose quality over budget?</p>
+
+            <img src="" alt="beschreibung des Bildes">
+
+
+            <label class="radio-label yesRadio">
+              <img src="img1.png" alt="Yes">
+              <input type="radio" name="qfour" value="yes">
+            </label>
+            <label class="radio-label noRadio">
+              <img src="img2.png" alt="No">
+              <input type="radio" name="qfour" value="no">
+            </label>
+          </div>
+
+        </form>
+      </div>
+
+
+
+      <div class="box5 box">
+        <form method="post" action="">
+
+          <div class="formContent">
+            <h2>Are your task mainly office tasks like mailing, word, edit small ecxel files?</h2>
+            <p>Do you look for a Laptop just for office tasks?</p>
+
+            <img src="" alt="beschreibung des Bildes">
+
+
+            <label class="radio-label yesRadio">
+              <img src="img1.png" alt="Yes">
+              <input type="radio" name="qfive" value="yes">
+            </label>
+            <label class="radio-label noRadio">
+              <img src="img2.png" alt="No">
+              <input type="radio" name="qfive" value="no">
+            </label>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <div id="banner-bottom">
+    <button id="start">
+      <h3>start evaluation</h3>
+      <img src="img/gesture-double-tap.svg" alt="" />
+    </button>
+  </div>
+
+  <?php include "footer.php" ?>
+
+
+
+</body>
 
 </html>
 
 <style>
-*, *:before, *:after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
 
 
-.allSwipe {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  opacity: 0;
-  transition: opacity 0.1s ease-in-out;
-}
+  .allSwipe {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+  }
 
-.loaded.allSwipe {
-  opacity: 1;
-}
+  .loaded.allSwipe {
+    opacity: 1;
+  }
 
-.formContent {
-  flex-grow: 1;
-  padding-top: 40px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  z-index: 1;
-}
+  .formContent {
+    flex-grow: 1;
+    padding-top: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+  }
 
-.formContent {
-  display: inline-block;
-  width: 90vw;
-  max-width: 400px;
-  height: 70vh;
-  background: #FFFFFF;
-  padding-bottom: 40px;
-  border-radius: 8px;
-  overflow: hidden;
-  position: absolute;
-  will-change: transform;
-  transition: all 0.3s ease-in-out;
-  cursor: -webkit-grab;
-  cursor: -moz-grab;
-  cursor: grab;
-}
+  .formContent {
+    display: inline-block;
+    width: 90vw;
+    max-width: 400px;
+    height: 70vh;
+    background: #FFFFFF;
+    padding-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    will-change: transform;
+    transition: all 0.3s ease-in-out;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: grab;
+  }
 
-.moving.formContent {
-  transition: none;
-  cursor: -webkit-grabbing;
-  cursor: -moz-grabbing;
-  cursor: grabbing;
-}
+  .moving.formContent {
+    transition: none;
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing;
+    cursor: grabbing;
+  }
 
-.formContent img {
-  max-width: 100%;
-  pointer-events: none;
-}
+  .formContent img {
+    max-width: 100%;
+    pointer-events: none;
+  }
 
-.formContent h2 {
-  margin-top: 32px;
-  font-size: 32px;
-  padding: 0 16px;
-  pointer-events: none;
-}
+  .formContent h2 {
+    margin-top: 32px;
+    font-size: 32px;
+    padding: 0 16px;
+    pointer-events: none;
+  }
 
-.formContent p {
-  margin-top: 24px;
-  font-size: 20px;
-  padding: 0 16px;
-  pointer-events: none;
-}
+  .formContent p {
+    margin-top: 24px;
+    font-size: 20px;
+    padding: 0 16px;
+    pointer-events: none;
+  }
 
-.radio-label {
-  flex: 0 0 100px;
-  text-align: center;
-  padding-top: 20px;
-}
+  .radio-label {
+    flex: 0 0 100px;
+    text-align: center;
+    padding-top: 20px;
+  }
 
-.radio-label {
-  line-height: 60px;
-  width: 60px;
-  border: 0;
-  background: #FFFFFF;
-  display: inline-block;
-  margin: 0 8px;
-}
+  .radio-label {
+    line-height: 60px;
+    width: 60px;
+    border: 0;
+    background: #FFFFFF;
+    display: inline-block;
+    margin: 0 8px;
+  }
 
-.radio-label i {
-  font-size: 32px;
-  vertical-align: middle;
-}
-
+  .radio-label i {
+    font-size: 32px;
+    vertical-align: middle;
+  }
 </style>
 
 <script>
@@ -314,10 +436,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
     if (currentCardIndex < allCards.length - 1) {
       let currentCard = allCards[currentCardIndex];
       let nextCard = allCards[currentCardIndex + 1];
-      
+
       currentCard.style.display = 'none';
       nextCard.style.display = 'block';
-      
+
       currentCardIndex++;
     } else {
       // Last card reached
@@ -366,5 +488,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
   document.querySelectorAll('input[type="radio"]').forEach(radio => {
     radio.addEventListener('change', handleRadioChange);
   });
-
-</script>
+</script> -->
