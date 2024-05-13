@@ -67,11 +67,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
 
 <label class="radio-label yesRadio">
   <img src="img1.png" alt="Yes">
-  <input type="radio" name="qOne" value="yes">
+  <input type="radio" name="qone" value="yes">
 </label>
 <label class="radio-label noRadio">
   <img src="img2.png" alt="No">
-  <input type="radio" name="qOne" value="no">
+  <input type="radio" name="qone" value="no">
 </label>
 
             </div>
