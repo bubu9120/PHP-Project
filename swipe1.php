@@ -48,11 +48,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
 </head>
 
 <body>
-    <?php include "header.php" ?>
+    
 
+    <div id="banner-no-image">
+
+    <div class="allSwipe">
 <!-- Question 1 -->
 
-<div class="box">
+<div class="box1 box">
     <form method="post" action="">
        
             <div class="formContent">
@@ -62,19 +65,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
                 <img src="" alt="display of different devices">
 
 
-<label class="radio-label">
+<label class="radio-label yesRadio">
   <img src="img1.png" alt="Yes">
   <input type="radio" name="qOne" value="yes">
 </label>
-<label class="radio-label">
+<label class="radio-label noRadio">
   <img src="img2.png" alt="No">
   <input type="radio" name="qOne" value="no">
 </label>
-
-<br>
-
-<button class="backButton">Back</button>
-<button class="nextButton">Next</button>
 
             </div>
       
@@ -84,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
 
 <!-- Question 2 -->
 
-<div class="box">
+<div class="box2 box">
     <form method="post" action="">
        
             <div class="formContent">
@@ -94,19 +92,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
                 <img src="" alt="beschreibung des Bildes">
 
 
-<label class="radio-label">
+<label class="radio-label yesRadio">
   <img src="img1.png" alt="Yes">
   <input type="radio" name="qtwo" value="yes">
 </label>
-<label class="radio-label">
+<label class="radio-label noRadio">
   <img src="img2.png" alt="No">
   <input type="radio" name="qtwo" value="no">
 </label>
-
-<br>
-
-<button class="backButton">Back</button>
-<button class="nextButton">Next</button>
 
             </div>
       
@@ -117,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
 
 <!-- Question 3 -->
 
-<div class="box">
+<div class="box3 box">
     <form method="post" action="">
        
             <div class="formContent">
@@ -127,19 +120,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
                 <img src="" alt="beschreibung des Bildes">
 
 
-<label class="radio-label">
+<label class="radio-label yesRadio">
   <img src="img1.png" alt="Yes">
   <input type="radio" name="qthree" value="yes">
 </label>
-<label class="radio-label">
+<label class="radio-label noRadio">
   <img src="img2.png" alt="No">
   <input type="radio" name="qthree" value="no">
 </label>
-
-<br>
-
-<button class="backButton">Back</button>
-<button class="nextButton">Next</button>
 
             </div>
       
@@ -148,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
 
 <!-- Question 4 -->
 
-<div class="box">
+<div class="box4 box">
     <form method="post" action="">
        
             <div class="formContent">
@@ -158,21 +146,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
                 <img src="" alt="beschreibung des Bildes">
 
 
-<label class="radio-label">
+<label class="radio-label yesRadio">
   <img src="img1.png" alt="Yes">
   <input type="radio" name="qfour" value="yes">
 </label>
-<label class="radio-label">
+<label class="radio-label noRadio">
   <img src="img2.png" alt="No">
   <input type="radio" name="qfour" value="no">
 </label>
-
-<br>
-
-<button class="backButton">Back</button>
-<button class="nextButton">Next</button>
-
-            </div>
+          </div>
       
     </form>
 </div>
@@ -180,7 +162,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
 
 <!-- Question 5 -->
 
-<div class="box">
+<div class="box5 box">
     <form method="post" action="">
        
             <div class="formContent">
@@ -190,27 +172,199 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
                 <img src="" alt="beschreibung des Bildes">
 
 
-<label class="radio-label">
+<label class="radio-label yesRadio">
   <img src="img1.png" alt="Yes">
   <input type="radio" name="qfive" value="yes">
 </label>
-<label class="radio-label">
+<label class="radio-label noRadio">
   <img src="img2.png" alt="No">
   <input type="radio" name="qfive" value="no">
 </label>
-
-<br>
-
-<button class="backButton">Back</button>
-<button class="nextButton">Next</button>
-
             </div>
       
     </form>
 </div>
+</div>
 
+</div>
 
     <?php include "footer.php" ?>
-</body>
+
+
+
+  </body>
 
 </html>
+
+<style>
+*, *:before, *:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+.allSwipe {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.loaded.allSwipe {
+  opacity: 1;
+}
+
+.formContent {
+  flex-grow: 1;
+  padding-top: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1;
+}
+
+.formContent {
+  display: inline-block;
+  width: 90vw;
+  max-width: 400px;
+  height: 70vh;
+  background: #FFFFFF;
+  padding-bottom: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: absolute;
+  will-change: transform;
+  transition: all 0.3s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+.moving.formContent {
+  transition: none;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+
+.formContent img {
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.formContent h2 {
+  margin-top: 32px;
+  font-size: 32px;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.formContent p {
+  margin-top: 24px;
+  font-size: 20px;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.radio-label {
+  flex: 0 0 100px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.radio-label {
+  line-height: 60px;
+  width: 60px;
+  border: 0;
+  background: #FFFFFF;
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.radio-label i {
+  font-size: 32px;
+  vertical-align: middle;
+}
+
+</style>
+
+<script>
+  'use strict';
+
+  let qContainer = document.querySelector('.allSwipe');
+  let allCards = document.querySelectorAll('.box');
+  let currentCardIndex = 0; // To keep track of the current card
+
+  function initCards() {
+    allCards.forEach(function(card, index) {
+      card.style.zIndex = allCards.length - index;
+      card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(-' + 30 * index + 'px)';
+      card.style.opacity = (10 - index) / 10;
+    });
+    qContainer.classList.add('loaded');
+  }
+
+  function showNextCard() {
+    if (currentCardIndex < allCards.length - 1) {
+      let currentCard = allCards[currentCardIndex];
+      let nextCard = allCards[currentCardIndex + 1];
+      
+      currentCard.style.display = 'none';
+      nextCard.style.display = 'block';
+      
+      currentCardIndex++;
+    } else {
+      // Last card reached
+      // Handle end of questions, you might want to redirect or show a message
+      console.log("End of questions reached");
+    }
+  }
+
+  // Hide all cards except the first one
+  for (let i = 1; i < allCards.length; i++) {
+    allCards[i].style.display = 'none';
+  }
+
+  // Initialize cards
+  initCards();
+
+  function handleSwipe(direction) {
+    let currentCard = allCards[currentCardIndex];
+
+    // Check if there are more cards to swipe
+    if (currentCardIndex < allCards.length - 1) {
+      currentCardIndex++;
+
+      let nextCard = allCards[currentCardIndex];
+      currentCard.classList.add('removed', 'moving');
+      currentCard.style.transform = direction > 0 ? 'translate(' + document.body.clientWidth + 'px, -100px) rotate(-30deg)' : 'translate(-' + document.body.clientWidth + 'px, -100px) rotate(30deg)';
+      initCards();
+
+      setTimeout(() => {
+        currentCard.classList.remove('moving');
+        currentCard.style.transform = '';
+      }, 300);
+    } else {
+      // Last card reached
+      // Handle end of questions, you might want to redirect or show a message
+      console.log("End of questions reached");
+    }
+  }
+
+  function handleRadioChange(event) {
+    let direction = event.target.value === 'yes' ? 1 : -1;
+    handleSwipe(direction);
+    showNextCard();
+  }
+
+  document.querySelectorAll('input[type="radio"]').forEach(radio => {
+    radio.addEventListener('change', handleRadioChange);
+  });
+
+</script>
