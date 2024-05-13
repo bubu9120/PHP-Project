@@ -1,5 +1,5 @@
 <footer>
-    <p>
-    <h3>&copy; 2047 Marco Odermatt</h3>
-    </p>
+    <p>Wenger & Berther M283 MMA-22cL</p>
+    <div>Logo</div>
+    <p>Hier kommst du zum Disclamer.</p>
 </footer>
