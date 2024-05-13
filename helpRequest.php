@@ -81,8 +81,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
             </fieldset>
         </form>
     </div>
+    <progress class="progress progress1" max="100" value="36"></progress>
     <div id="banner-bottom">
-        <progress class="progress progress1" max="100" value="36"></progress>
+
         <button id="start">
             <h3>start evaluation</h3>
             <img src="img/gesture-double-tap.svg" alt="" />
