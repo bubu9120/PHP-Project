@@ -3,10 +3,6 @@ body {
   margin: 0;
 }
 
-/* logo */
-#logo {
-  height: 100px;
-}
 /* font */
 h1 {
   font-size: 42px;
@@ -111,6 +107,13 @@ footer p:first-child {
   text-align: center; /* Zentriere den ersten Text */
   flex-grow: 1; /* Lasse den ersten Text wachsen */
   flex-shrink: 0; /* Verhindere, dass der erste Text schrumpft */
+}
+.link-footer {
+  color: #63ffcc;
+  text-decoration: none;
+}
+#logo {
+  height: 80px;
 }
 /* bannertext */
 .hellotext {

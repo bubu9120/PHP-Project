@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
 <body>
 
   <div id="banner-no-image">
-
+    <h1 class="hellotext">We help you to find your <br>right device!</h1>
     <!-- card1 -->
     <div class="card-cont">
       <div class="card">
@@ -136,6 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
     </div>
 
   </div>
+  <progress class="progress progress1" max="10" value="8"></progress>
   <div id="banner-bottom">
     <button id="start">
       <h3>start evaluation</h3>
