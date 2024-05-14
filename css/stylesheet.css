@@ -1,3 +1,12 @@
+*,
+body {
+  margin: 0;
+}
+
+/* logo */
+#logo {
+  height: 100px;
+}
 /* font */
 h1 {
   font-size: 42px;
@@ -22,7 +31,10 @@ p {
 #banner-no-image {
   height: 75vh;
   display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
   background-color: black;
+  position: relative;
 }
 
 #banner {
@@ -114,7 +126,50 @@ progress {
   margin-top: 0;
   margin: 0;
   padding: 0;
+  height: 8px; /* Height of the progress bar */
+  border: 0.5px solid black; /* Black border */
+  border-radius: 0; /* Squared corners */
+  background-color: #f3f3f3;
 }
+.progress::-webkit-progress-bar {
+  background-color: transparent; /* Make background transparent to show custom background color */
+}
+
+.progress::-webkit-progress-value {
+  background-color: #63ffcc; /* Green loading bar */
+}
+
+.progress::-moz-progress-bar {
+  background-color: #63ffcc; /* Green loading bar for Firefox */
+}
+
+/* helprequest */
+
+fieldset {
+  height: 568px;
+  width: 352px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 40px;
+  margin: 0;
+}
+#start-hr {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 25px;
+}
+
+#start-hr h3 {
+  margin: 0; /* Remove default margin */
+}
+
+#start-hr img {
+  margin-left: 16px; /* Adjust spacing between text and image */
+}
+
 /*smartphone */
 @media only screen and (max-width: 480px) {
   .index-text-container {
