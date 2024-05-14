@@ -53,8 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
     <div id="banner-no-image">
         <form method="post" action="">
             <h1 class="hellotext">We help you to find your <br>right device!</h1>
-            <fieldset id="step-1">
-                <h2>1 - Personalien</h2>
+            <fieldset id="helprequest-forms">
+                <h2>Help request.</h2>
+                <p>Please fill the form. We will contact you as soon as possible.</p>
                 <p>
                     <input type="radio" name="gender" id="male" value="Herr" required <?= isset($_SESSION["gender"]) && $_SESSION["gender"] == "Herr" ? "checked" : ""; ?>>
                     <label for="male">Herr</label>
@@ -76,17 +77,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
                 </p>
                 <p>
                     <br />
-                    <input name="next" type="submit" value="Weiter" />
+                    <input name="next" type="submit" value="send" />
                 </p>
             </fieldset>
         </form>
     </div>
-    <progress class="progress progress1" max="100" value="36"></progress>
+    <progress class="progress progress1" max="10" value="8"></progress>
     <div id="banner-bottom">
 
-        <button id="start">
-            <h3>start evaluation</h3>
-            <img src="img/gesture-double-tap.svg" alt="" />
+        <button id="start-hr">
+            <h3>check your device</h3>
+            <img src="img/gesture-next.svg" alt="" />
         </button>
     </div>
 
