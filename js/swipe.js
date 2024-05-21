@@ -6,7 +6,7 @@ $(document).ready(function () {
   var pullDeltaX = 0;
   var deg = 0;
   var $card, $cardReject, $cardLike;
-  let currentQuestionIndex;
+  let frontCardId = 0;
 
   function pullChange() {
     animating = true;
@@ -27,9 +27,15 @@ $(document).ready(function () {
     if (pullDeltaX >= decisionVal) {
       $card.addClass("to-right");
       console.log("No");
+      frontCardId += 1;
+      console.log(frontCardId);
+      pageChangeAfterLastSwipe();
     } else if (pullDeltaX <= -decisionVal) {
       $card.addClass("to-left");
       console.log("Yes");
+      frontCardId += 1;
+      console.log(frontCardId);
+      pageChangeAfterLastSwipe();
     }
 
     if (Math.abs(pullDeltaX) >= decisionVal) {
@@ -83,3 +89,13 @@ $(document).ready(function () {
     });
   });
 });
+
+function pageChangeAfterLastSwipe(frontCardId) {
+  const frontCardIdcheck = frontCardId;
+  if (frontCardIdcheck > 5) {
+    console.log("window.href");
+  } else {
+    console.log("notyet");
+  }
+  return;
+}
