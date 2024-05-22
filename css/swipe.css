@@ -204,3 +204,30 @@ body {
   height: 100%;
   cursor: grab;
 }
+
+.card__skipcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__skipno,
+.card__skipyes {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+
+.card__skipno > img {
+  padding-right: 10px;
+}
+.card__skipyes > img {
+  padding-left: 10px;
+}
+
+.card__skipno > h4 {
+  padding-top: 20px;
+}
+.card__skipyes > h4 {
+  padding-top: 20px;
+}

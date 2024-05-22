@@ -125,6 +125,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
         </div>
         <p class="card__we">Are your looking for a new device for the first time?</p>
         <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
+        <div class="card__skipcontainer">
+          <div class="card__skipno">
+            <img src="img/undo.svg" alt="undo">
+            <h4>no</h4>
+          </div>
+          <div class="card__skipyes">
+            <h4>yes</h4>
+            <img src="img/redo.svg" alt="redo">
+          </div>
+        </div>
         <div class="card__choice m--reject"></div>
         <div class="card__choice m--like"></div>
         <div class="card__drag"></div>
