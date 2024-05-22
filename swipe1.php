@@ -58,12 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
     <div class="card-cont">
       <div class="card">
         <div class="card__top brown">
-          <div class="card__img"></div>
-          <p class="card_question">Question 6</p>
+          <h1 class="card_question">Is it your first device?</h1>
         </div>
-        <div class="card__btm">
-          <p class="card__we">Whatever</p>
-        </div>
+        <p class="card__we">Are your looking for a new device for the first time?</p>
+        <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
         <div class="card__choice m--reject"></div>
         <div class="card__choice m--like"></div>
         <div class="card__drag"></div>
@@ -123,12 +121,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
       <!-- card6 -->
       <div class="card">
         <div class="card__top purple">
-          <div class="card__img"></div>
-          <p class="card_question">Question</p>
+          <h1 class="card_question">Is it your first device?</h1>
         </div>
-        <div class="card__btm">
-          <p class="card__we">Whatever</p>
-        </div>
+        <p class="card__we">Are your looking for a new device for the first time?</p>
+        <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
         <div class="card__choice m--reject"></div>
         <div class="card__choice m--like"></div>
         <div class="card__drag"></div>

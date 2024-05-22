@@ -92,8 +92,7 @@ body {
 }
 
 .card__top {
-  height: var(--cardTopH);
-  padding-top: 4rem;
+  padding-top: 36px;
 }
 
 .card__top.purple {
@@ -122,20 +121,16 @@ body {
 
 .card__img {
   overflow: hidden;
-  width: var(--imgSize);
-  height: var(--imgSize);
   margin: 0 auto 1.5rem;
-  border-radius: 50%;
-  border: 0.5rem solid #ffffff;
-  background-image: url("//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg");
-  background-size: cover;
+  width: 301px;
+  height: auto;
+  padding-top: 72px;
 }
 
-.card__question {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #fff;
+.card_question {
+  text-align: left;
+  padding-left: 36px;
+  padding-right: 36px;
 }
 
 .card__btm {
@@ -144,9 +139,10 @@ body {
 }
 
 .card__we {
-  text-align: center;
-  font-size: 2.2rem;
-  line-height: var(--cardBtmH);
+  text-align: left;
+  padding-left: 36px;
+  padding-right: 36px;
+  padding-top: 26px;
 }
 
 .card__choice {
