@@ -47,10 +47,7 @@ body {
 }
 
 .card-cont {
-  position: relative;
-  width: var(--cardW);
-  height: var(--cardH);
-  margin: 0 auto 5rem;
+  margin: auto;
 }
 
 .card {
