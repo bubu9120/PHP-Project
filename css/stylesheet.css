@@ -37,7 +37,13 @@ p {
   background-color: black;
   position: relative;
 }
-
+#banner-no-image-swipe {
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  position: relative;
+}
 #banner {
   background-image: url("../img/banner_index_widescreen.svg");
   background-size: cover;
@@ -188,5 +194,8 @@ fieldset {
   }
   h1 {
     font-size: 36px;
+  }
+  .hellotext {
+    display: none;
   }
 }

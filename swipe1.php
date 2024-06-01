@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
 
 <body>
 
-  <div id="banner-no-image">
+  <div id="banner-no-image-swipe">
     <h1 class="hellotext">We help you to find your <br>right device!</h1>
     <!-- card1 -->
     <form action="process.php" method="post">
@@ -80,9 +80,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
               </label>
             </div>
           </div>
-          <div class="card__choice m--reject"><input type="submit" value="Submit"></div>
-          <div class="card__choice m--like"><input type="submit" value="Submit"></div>
+          <div class="card__choice m--reject"></div>
+          <div class="card__choice m--like"></div>
           <div class="card__drag"></div>
+          <input type="submit" value="Submit">
           <div>
 
           </div>
