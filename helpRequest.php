@@ -58,26 +58,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
                 <p>Please fill the form. We will contact you as soon as possible.</p>
                 <p>
                     <input type="radio" name="gender" id="male" value="Herr" required <?= isset($_SESSION["gender"]) && $_SESSION["gender"] == "Herr" ? "checked" : ""; ?>>
-                    <label for="male">Herr</label>
+                    <label for="male">Male</label>
                     <input type="radio" name="gender" id="female" value="Frau" required <?= isset($_SESSION["gender"]) && $_SESSION["gender"] == "Frau" ? "checked" : ""; ?>>
-                    <label for="female">Frau</label>
+                    <label for="female">Female</label>
                     <input type="radio" name="gender" id="nonbinary" value="nicht-binär" required <?= isset($_SESSION["gender"]) && $_SESSION["gender"] == "nicht-binär" ? "checked" : ""; ?>>
-                    <label for="nonbinary">nicht-binär</label>
+                    <label for="nonbinary">non binary</label>
                     <span class="error-text"><?= $error_gender ?? ""; ?></span>
                 </p>
                 <p>
-                    <label for="name-first">Vorname</label><br />
+                    <label for="name-first">First Name</label><br />
                     <input type="text" id="name-first" name="name-first" minlength="2" maxlength="30" value="<?= $_SESSION["name-first"] ?? ""; ?>">
                     <span class="error-text"><?= $error_name_first ?? ""; ?></span>
                 </p>
                 <p>
-                    <label for="name-last">Nachname</label><br />
+                    <label for="name-last">Last Name</label><br />
                     <input type="text" id="name-last" name="name-last" minlength="2" maxlength="30" value="<?= $_SESSION["name-last"] ?? ""; ?>">
                     <span class="error-text"><?= $error_name_last ?? ""; ?></span>
                 </p>
                 <p>
+                <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+</p>
+<p>
+        <label for="appointment_date">Date of Appointment:</label><br>
+        <input type="date" id="appointment_date" name="appointment_date" required><br><br>
+</p>
+        <label for="appointment_time">Time of Appointment:</label><br>
+        <input type="time" id="appointment_time" name="appointment_time" required><br><br>
+<p>
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" pattern="([0-9]{10}|[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2})" required><br>
+
+                </p>
+                <p>
                     <br />
-                    <input name="next" type="submit" value="send" />
+                    <input name="next" type="submit" value="request help" />
                 </p>
             </fieldset>
         </form>
