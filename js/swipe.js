@@ -99,3 +99,16 @@ function pageChangeAfterLastSwipe(frontCardId) {
   }
   return;
 }
+
+function submitYes() {
+  // Wählen Sie den Radiobutton mit dem Wert "yes" aus
+  document.getElementById("qone_yes").checked = true;
+  // Senden Sie das Formular
+  document.getElementById("swipeForm").submit("yes");
+}
+function submitNo() {
+  // Wählen Sie den Radiobutton mit dem Wert "yes" aus
+  document.getElementById("qone_no").checked = true;
+  // Senden Sie das Formular
+  document.getElementById("swipeForm").submit("no");
+}
