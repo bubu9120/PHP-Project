@@ -1,36 +1,31 @@
 
 <?php
-
 session_start();
 
-$error_gender = "";
-$error_name_first = "";
-$error_name_last = "";
+$error = "";
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
     ini_set("display_errors", 1);
     error_reporting(E_ALL);
     $hasError = false;
 
-    if (isset($_POST["gender"])) {
-        $_SESSION["gender"] = htmlspecialchars($_POST["gender"]);
+    if (isset($_POST["qone"])) {
+        $_SESSION["qone"] = htmlspecialchars($_POST["qone"]);
     } else {
-        $error_gender = "Bitte wählen Sie eine Anrede aus.";
+        $error_qone = "Please swipe the card";
         $hasError = true;
     }
 
-    if (strlen($_POST["name-first"]) > 1 && strlen($_POST["name-first"]) <= 50) {
-        $_SESSION["name-first"] = htmlspecialchars(trim($_POST["name-first"]));
-    } else {
-        $error_name_first = "Bitte geben Sie einen Vornamen (mit 2 bis 50 Zeichen) ein.";
-        $hasError = true;
-    }
 
-    if (strlen($_POST["name-last"]) > 1 && strlen($_POST["name-last"]) <= 50) {
-        $_SESSION["name-last"] = htmlspecialchars(trim($_POST["name-last"]));
-    } else {
-        $error_name_last = "Bitte geben Sie einen Nachnamen (mit 2 bis 50 Zeichen) ein.";
-        $hasError = true;
+
+    for ($i = 1; $i <= 5; $i++) {
+        if (isset($_POST["q$i"])) {
+            $_SESSION["q$i"] = htmlspecialchars($_POST["q$i"]);
+        } else {
+            $hasError = true;
+            ${"error_q$i"} = "Bitte beantworten Sie Frage $i.";
+        }
     }
 
     if (!$hasError) {
@@ -50,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
 </head>
 
 <body>
-    <!--     <?php include "header.php" ?> -->
+    <!-- <?php include "header.php" ?> -->
     <div id="banner-no-image">
         <form method="post" action="">
             <h1 class="hellotext">We help you to find your <br>right device!</h1>
@@ -59,50 +54,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
                 <p>Please check your answers.</p>
                 <br>
                 <p>
-                <label for="qone">Question 1</label><br>
-                    <input type="radio" name="qone" id="qoneyes" value="yes" required 
+                    <label for="qone">Question 1</label><br>
+                    <input type="radio" name="qone" id="qonedef" value="def" required>
+                    <label for="qonedef"></label>
+                    <input type="radio" name="qone" id="qoneyes" value="yes" required>
                     <label for="qoneyes">Yes</label>
-                    <input type="radio" name="qone" id="qoneno" value="no" required 
+                    <input type="radio" name="qone" id="qoneno" value="no" required>
                     <label for="qoneno">No</label>
-                  
                 </p>
                 <br>
                 <p>
-                <label for="qtwo">Question 2</label><br>
-                    <input type="radio" name="two" id="qtwoyes" value="yes" required 
+                    <label for="qtwo">Question 2</label><br>
+                    <input type="radio" name="qtwo" id="qtwodef" value="def" required>
+                    <label for="qtwodef"></label>
+                    <input type="radio" name="qtwo" id="qtwoyes" value="yes" required>
                     <label for="qtwoyes">Yes</label>
-                    <input type="radio" name="qtwo" id="qtwono" value="no" required 
+                    <input type="radio" name="qtwo" id="qtwono" value="no" required>
                     <label for="qtwono">No</label>
-                  
                 </p>
                 <br>
                 <p>
-                <label for="qthree">Question 3</label><br>
-                    <input type="radio" name="three" id="qthreeyes" value="yes" required 
+                    <label for="qthree">Question 3</label><br>
+                    <input type="radio" name="qthree" id="qthreedef" value="def" required>
+                    <label for="qthreedef"></label>
+                    <input type="radio" name="qthree" id="qthreeyes" value="yes" required>
                     <label for="qthreeyes">Yes</label>
-                    <input type="radio" name="qthree" id="qthreeno" value="no" required 
+                    <input type="radio" name="qthree" id="qthreeno" value="no" required>
                     <label for="qthreeno">No</label>
-                  
                 </p>
                 <br>
                 <p>
-                <label for="qfour">Question 4</label><br>
-                    <input type="radio" name="four" id="qfouryes" value="yes" required 
-                    <label for="qfouryes">Yes</label>
-                    <input type="radio" name="qfour" id="qfourno" value="no" required 
-                    <label for="qfourno">No</label>
-                  
+                    <label for="qfour">Question 4</label><br>
+                    <input type="radio" name="qfour" id="qfourdef" value="def" required>
+                    <label for="qfourdef"></label>
+                    <input type="radio" name="qfour" id="qfouryes" value="yes" required>
+                    <label for="qfouryes"></label>
+                    <input type="radio" name="qfour" id="qfourno" value="no" required>
+                    <label for="qfourno"></label>
                 </p>
                 <br>
                 <p>
-                <label for="qfive">Question 5</label><br>
-                    <input type="radio" name="five" id="qfiveyes" value="yes" required 
+                    <label for="qfive">Question 5</label><br>
+                    <input type="radio" name="qfive" id="qfivedef" value="def" required>
+                    <label for="qfivedef"></label>
+                    <input type="radio" name="qfive" id="qfiveyes" value="yes" required>
                     <label for="qfiveyes">Yes</label>
-                    <input type="radio" name="qfive" id="qfiveno" value="no" required 
+                    <input type="radio" name="qfive" id="qfiveno" value="no" required>
                     <label for="qfiveno">No</label>
-                  
                 </p>
-        
                 <p>
                     <br />
                     <input name="next" type="submit" value="Show Device" />
@@ -112,7 +111,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
     </div>
     <progress class="progress progress1" max="10" value="8"></progress>
     <div id="banner-bottom">
-
         <button id="start-hr">
             <h3>check your device</h3>
             <img src="img/gesture-next.svg" alt="" />
