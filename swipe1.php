@@ -2,41 +2,6 @@
 
 session_start();
 
-$error_address = "";
-$error_zip = "";
-$error_city = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
-  ini_set("display_errors", 1);
-  error_reporting(E_ALL);
-  $hasError = false;
-
-  if (strlen($_POST["address"]) > 1 && strlen($_POST["address"]) < 100) {
-    $_SESSION["address"] = htmlspecialchars(trim($_POST["address"]));
-  } else {
-    $error_address = "Bitte geben Sie die Adresse ein.";
-    $hasError = true;
-  }
-
-  if (strlen($_POST["zip"]) == 4) {
-    $_SESSION["zip"] = htmlspecialchars($_POST["zip"]);
-  } else {
-    $error_zip = "Bitte geben Sie eine vierstellige Postleitzahl ein.";
-    $hasError = true;
-  }
-
-  if (strlen($_POST["city"]) > 1 && strlen($_POST["city"]) < 100) {
-    $_SESSION["city"] = htmlspecialchars(trim($_POST["city"]));
-  } else {
-    $error_city = "Bitte geben Sie den Ort ein.";
-    $hasError = true;
-  }
-
-  if (!$hasError) {
-    header('Location: ./step-3.php');
-    exit();
-  }
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -93,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
         <!-- card2 -->
         <div class="card">
           <div class="card__top lime">
-            <h1 class="card_question">Is it your first device?</h1>
+            <h1 class="card_question">Mobile or Station?</h1>
           </div>
           <p class="card__we">Are your looking for a new device for the first time?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
@@ -115,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
         <!-- card3 -->
         <div class="card">
           <div class="card__top cyan">
-            <h1 class="card_question">Is it your first device?</h1>
+            <h1 class="card_question">Whats your price Range?</h1>
           </div>
           <p class="card__we">Are your looking for a new device for the first time?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
@@ -137,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
         <!-- card4 -->
         <div class="card">
           <div class="card__top indigo">
-            <h1 class="card_question">Is it your first device?</h1>
+            <h1 class="card_question">Business or Private?</h1>
           </div>
           <p class="card__we">Are your looking for a new device for the first time?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
@@ -155,11 +120,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
           <div class="card__choice m--like"></div>
           <div class="card__drag"></div>
         </div>
-
+        <!-- card5 -->
+        <div class="card">
+          <div class="card__top indigo">
+            <h1 class="card_question">Random Question?</h1>
+          </div>
+          <p class="card__we">Are your looking for a new device for the first time?</p>
+          <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
+          <div class="card__skipcontainer">
+            <div class="card__skipno">
+              <img src="img/undo.svg" alt="undo">
+              <h4>no</h4>
+            </div>
+            <div class="card__skipyes">
+              <h4>yes</h4>
+              <img src="img/redo.svg" alt="redo">
+            </div>
+          </div>
+          <div class="card__choice m--reject"></div>
+          <div class="card__choice m--like"></div>
+          <div class="card__drag"></div>
+        </div>
         <!-- card6 -->
         <div class="card">
           <div class="card__top purple">
-            <h1 class="card_question">Is it your first device?</h1>
+            <h1 class="card_question">Creative or Administration?</h1>
           </div>
           <p class="card__we">Are your looking for a new device for the first time?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
@@ -183,10 +168,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
   </div>
   <progress class="progress progress1" max="10" value="8"></progress>
   <div id="banner-bottom">
-    <button id="start">
-      <h3>start evaluation</h3>
-      <img src="img/gesture-double-tap.svg" alt="" />
-    </button>
+    <div class="backandforward">
+      <button id="back">
+        <img src="img/back.svg" alt="back" />
+        <h3>back</h3>
+      </button>
+      <button id="next">
+        <h3>next</h3>
+        <img src="img/next.svg" alt="next" />
+      </button>
+    </div>
   </div>
   <?php include "footer.php" ?>
 

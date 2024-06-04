@@ -226,3 +226,27 @@ body {
 input {
   visibility: hidden;
 }
+
+.backandforward {
+  display: flex; /* Aktiviert Flexbox für das Layout der Buttons */
+  gap: 86px; /* Abstand zwischen den Buttons */
+}
+
+button {
+  display: flex;
+  align-items: center; /* Zentriert den Inhalt der Buttons vertikal */
+  justify-content: center; /* Zentriert den Inhalt der Buttons horizontal */
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+button h3 {
+  margin: 0 16px; /* Abstand zwischen Text und Bild */
+}
+
+button img {
+  width: 20px;
+  height: 20px;
+}
