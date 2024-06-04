@@ -29,13 +29,11 @@ $(document).ready(function () {
       console.log("No");
       frontCardId += 1;
       console.log(frontCardId);
-      pageChangeAfterLastSwipe();
     } else if (pullDeltaX <= -decisionVal) {
       $card.addClass("to-left");
       console.log("Yes");
       frontCardId += 1;
       console.log(frontCardId);
-      pageChangeAfterLastSwipe();
     }
 
     if (Math.abs(pullDeltaX) >= decisionVal) {
@@ -88,17 +86,25 @@ $(document).ready(function () {
       release();
     });
   });
-});
+  $("#next").on("click", function () {
+    if (animating) return;
+    $card = $(".card").eq(frontCardId);
+    $cardReject = $(".card__choice.m--reject", $card);
+    $cardLike = $(".card__choice.m--like", $card);
+    pullDeltaX = decisionVal + 1; // Zum Auslösen des "Swipe Right"
+    release();
+  });
 
-function pageChangeAfterLastSwipe(frontCardId) {
-  const frontCardIdcheck = frontCardId;
-  if (frontCardIdcheck > 5) {
-    console.log("window.href");
-  } else {
-    console.log("notyet");
-  }
-  return;
-}
+  // Funktionalität für die "Zurück" Taste
+  $("#back").on("click", function () {
+    if (animating || frontCardId === 0) return;
+    frontCardId -= 1;
+    $card = $(".card").eq(frontCardId);
+    $cardReject = $(".card__choice.m--reject", $card);
+    $cardLike = $(".card__choice.m--like", $card);
+    $card.removeClass("below").attr("style", ""); // Die Karte wieder sichtbar machen
+  });
+});
 
 function submitYes() {
   // Wählen Sie den Radiobutton mit dem Wert "yes" aus
