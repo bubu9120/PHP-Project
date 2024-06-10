@@ -5,6 +5,12 @@ session_start();
 $error_gender = "";
 $error_name_first = "";
 $error_name_last = "";
+$error_email = "";
+$error_name_last = "";
+$error_appointment_date = "";
+$error_appointment_time = "";
+$error_phone = "";
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
     ini_set("display_errors", 1);
@@ -14,21 +20,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
     if (isset($_POST["gender"])) {
         $_SESSION["gender"] = htmlspecialchars($_POST["gender"]);
     } else {
-        $error_gender = "Bitte wählen Sie eine Anrede aus.";
+        $error_gender = "Please enter your gender";
         $hasError = true;
     }
 
     if (strlen($_POST["name-first"]) > 1 && strlen($_POST["name-first"]) <= 50) {
         $_SESSION["name-first"] = htmlspecialchars(trim($_POST["name-first"]));
     } else {
-        $error_name_first = "Bitte geben Sie einen Vornamen (mit 2 bis 50 Zeichen) ein.";
+        $error_name_first = "Please enter your first name";
         $hasError = true;
     }
 
     if (strlen($_POST["name-last"]) > 1 && strlen($_POST["name-last"]) <= 50) {
         $_SESSION["name-last"] = htmlspecialchars(trim($_POST["name-last"]));
     } else {
-        $error_name_last = "Bitte geben Sie einen Nachnamen (mit 2 bis 50 Zeichen) ein.";
+        $error_name_last = "Please enter your last name";
+        $hasError = true;
+    }
+    if (strlen($_POST["appointment_date"]) > 1 && strlen($_POST["appointment_date"]) <= 50) {
+        $_SESSION["appointment_date"] = htmlspecialchars(trim($_POST["appointment_date"]));
+    } else {
+        $error_appointment_date = "Please enter an appointment date";
+        $hasError = true;
+    }
+
+    if (strlen($_POST["appointment_time"]) > 1 && strlen($_POST["appointment_time"]) <= 50) {
+        $_SESSION["appointment_time"] = htmlspecialchars(trim($_POST["appointment_time"]));
+    } else {
+        $error_appointment_time = "Please enter an appointment time";
         $hasError = true;
     }
 

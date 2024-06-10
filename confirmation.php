@@ -2,16 +2,10 @@
 
 session_start();
 
-$from = "ramon.suter@sluz.ch";
-$to = "sur.bbzw@gmail.com";
-$subject = "Neue Nachricht von m307.ramon-suter.bbzwinf.ch";
-
 $message = "Anrede: " . $_SESSION["gender"] . "\n";
 $message .= "Vorname: " . $_SESSION["name-first"] . "\n";
 $message .= "Nachname: " . $_SESSION["name-last"] . "\n";
 $message .= "Strasse: " . $_SESSION["address"] . "\n";
-$message .= "PLZ: " . $_SESSION["zip"] . "\n";
-$message .= "Ort: " . $_SESSION["city"] . "\n";
 $message .= "E-Mail: " . $_SESSION["email"] . "\n";
 $message .= "Telefonnummer: " . $_SESSION["phone-number"] . "\n";
 $message .= "Geburtsdatum: " . $_SESSION["date-of-birth"] . "\n";

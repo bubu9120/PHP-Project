@@ -3,6 +3,14 @@
 session_start();
 
 $error = "";
+$message = "Are your looking for a new device for the first time? " . $_SESSION["qone"] . "\n";
+$message .= "Question2 " . $_SESSION["qtwo"] . "\n";
+$message .= "Question 3 " . $_SESSION["qtree"] . "\n";
+$message .= "Question 4 " . $_SESSION["qfour"] . "\n";
+$message .= "Question 5 " . $_SESSION["gfive"] . "\n";
+
+$headers = "From:" . $from;
+mail($to, $subject, $message, $headers);
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
@@ -54,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
                 <p>Please check your answers.</p>
                 <br>
                 <p>
-                    <label for="qone">Question 1</label><br>
+                    <label for="qone">Are your looking for a new device for the first time?</label><br>
                     <input type="radio" name="qone" id="qonedef" value="def" required>
                     <label for="qonedef"></label>
                     <input type="radio" name="qone" id="qoneyes" value="yes" required>
@@ -64,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
                 </p>
                 <br>
                 <p>
-                    <label for="qtwo">Question 2</label><br>
+                    <label for="qtwo">Creative or Administration?</label><br>
                     <input type="radio" name="qtwo" id="qtwodef" value="def" required>
                     <label for="qtwodef"></label>
                     <input type="radio" name="qtwo" id="qtwoyes" value="yes" required>
