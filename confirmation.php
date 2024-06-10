@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-
+echo '<script>console.log(' . json_encode($_SESSION['responses']) . ');</script>';
+/*
 $from = "ramon.suter@sluz.ch";
 $to = "sur.bbzw@gmail.com";
 $subject = "Neue Nachricht von m307.ramon-suter.bbzwinf.ch";
@@ -18,7 +19,7 @@ $message .= "Geburtsdatum: " . $_SESSION["date-of-birth"] . "\n";
 
 $headers = "From:" . $from;
 mail($to, $subject, $message, $headers);
-
+*/
 session_destroy();
 
 ?>

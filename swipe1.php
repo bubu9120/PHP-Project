@@ -2,6 +2,13 @@
 
 session_start();
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $_SESSION['responses'] = $_POST;
+  header('Location: confirmation.php');
+  exit();
+};
+
+echo '<script>console.log(' . json_encode($_SESSION['responses']) . ');</script>';
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,9 +27,9 @@ session_start();
   <div id="banner-no-image-swipe">
     <h1 class="hellotext">We help you to find your <br>right device!</h1>
     <!-- card1 -->
-    <form action="process.php" method="post">
+    <form id="swipeForm" action="" method="post">
       <div class="card-cont">
-
+        <!-- card1 -->
         <div class="card">
           <div class="card__top brown">
             <h1 class="card_question">Is it your first device?</h1>
@@ -30,47 +37,42 @@ session_start();
           <p class="card__we">Are you looking for a new device for the first time?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
           <div class="card__skipcontainer">
-            <div class="card__skipno">
-              <input type="radio" id="qone" name="qone" value="no">
-              <label for="no">
-                <img src="img/undo.svg" alt="undo">
-                <h4>no</h4>
-              </label>
-            </div>
-            <div class="card__skipyes">
-              <input type="radio" id="qone" name="qone" value="yes">
-              <label for="yes">
-                <h4>yes</h4>
-                <img src="img/redo.svg" alt="redo">
-              </label>
-            </div>
+            <input type="radio" id="qsix_no" name="qsix" value="no">
+            <label for="qsix_no" class="card__skipno">
+              <img src="img/undo.svg" alt="undo">
+              <h4>no</h4>
+            </label>
+
+            <input type="radio" id="qsix_yes" name="qsix" value="yes">
+            <label for="qsix_yes" class="card__skipyes">
+              <h4>yes</h4>
+              <img src="img/redo.svg" alt="redo">
+            </label>
           </div>
           <div class="card__choice m--reject"></div>
           <div class="card__choice m--like"></div>
           <div class="card__drag"></div>
-          <input type="submit" value="Submit">
-          <div>
-
-          </div>
         </div>
-
 
         <!-- card2 -->
         <div class="card">
           <div class="card__top lime">
             <h1 class="card_question">Mobile or Station?</h1>
           </div>
-          <p class="card__we">Are your looking for a new device for the first time?</p>
+          <p class="card__we">Are you looking for a new device for the first time?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
           <div class="card__skipcontainer">
-            <div class="card__skipno">
+            <input type="radio" id="qfive_no" name="qfive" value="no">
+            <label for="qfive_no" class="card__skipno">
               <img src="img/undo.svg" alt="undo">
               <h4>no</h4>
-            </div>
-            <div class="card__skipyes">
+            </label>
+
+            <input type="radio" id="qfive_yes" name="qfive" value="yes">
+            <label for="qfive_yes" class="card__skipyes">
               <h4>yes</h4>
               <img src="img/redo.svg" alt="redo">
-            </div>
+            </label>
           </div>
           <div class="card__choice m--reject"></div>
           <div class="card__choice m--like"></div>
@@ -82,17 +84,20 @@ session_start();
           <div class="card__top cyan">
             <h1 class="card_question">Whats your price Range?</h1>
           </div>
-          <p class="card__we">Are your looking for a new device for the first time?</p>
+          <p class="card__we">Are you looking for a new device for the first time?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
           <div class="card__skipcontainer">
-            <div class="card__skipno">
+            <input type="radio" id="qfour_no" name="qfour" value="no">
+            <label for="qfour_no" class="card__skipno">
               <img src="img/undo.svg" alt="undo">
               <h4>no</h4>
-            </div>
-            <div class="card__skipyes">
+            </label>
+
+            <input type="radio" id="qfour_yes" name="qfour" value="yes">
+            <label for="qfour_yes" class="card__skipyes">
               <h4>yes</h4>
               <img src="img/redo.svg" alt="redo">
-            </div>
+            </label>
           </div>
           <div class="card__choice m--reject"></div>
           <div class="card__choice m--like"></div>
@@ -104,69 +109,84 @@ session_start();
           <div class="card__top indigo">
             <h1 class="card_question">Business or Private?</h1>
           </div>
-          <p class="card__we">Are your looking for a new device for the first time?</p>
+          <p class="card__we">Are you looking for a new device for the first time?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
           <div class="card__skipcontainer">
-            <div class="card__skipno">
+            <input type="radio" id="qthree_no" name="qthree" value="no">
+            <label for="qthree_no" class="card__skipno">
               <img src="img/undo.svg" alt="undo">
               <h4>no</h4>
-            </div>
-            <div class="card__skipyes">
+            </label>
+
+            <input type="radio" id="qthree_yes" name="qthree" value="yes">
+            <label for="qthree_yes" class="card__skipyes">
               <h4>yes</h4>
               <img src="img/redo.svg" alt="redo">
-            </div>
-          </div>
-          <div class="card__choice m--reject"></div>
-          <div class="card__choice m--like"></div>
-          <div class="card__drag"></div>
-        </div>
-        <!-- card5 -->
-        <div class="card">
-          <div class="card__top indigo">
-            <h1 class="card_question">Random Question?</h1>
-          </div>
-          <p class="card__we">Are your looking for a new device for the first time?</p>
-          <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
-          <div class="card__skipcontainer">
-            <div class="card__skipno">
-              <img src="img/undo.svg" alt="undo">
-              <h4>no</h4>
-            </div>
-            <div class="card__skipyes">
-              <h4>yes</h4>
-              <img src="img/redo.svg" alt="redo">
-            </div>
-          </div>
-          <div class="card__choice m--reject"></div>
-          <div class="card__choice m--like"></div>
-          <div class="card__drag"></div>
-        </div>
-        <!-- card6 -->
-        <div class="card">
-          <div class="card__top purple">
-            <h1 class="card_question">Creative or Administration?</h1>
-          </div>
-          <p class="card__we">Are your looking for a new device for the first time?</p>
-          <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
-          <div class="card__skipcontainer">
-            <div class="card__skipno">
-              <img src="img/undo.svg" alt="undo">
-              <h4>no</h4>
-            </div>
-            <div class="card__skipyes">
-              <h4>yes</h4>
-              <img src="img/redo.svg" alt="redo">
-            </div>
+            </label>
           </div>
           <div class="card__choice m--reject"></div>
           <div class="card__choice m--like"></div>
           <div class="card__drag"></div>
         </div>
 
+        <!-- card5 -->
+        <div class="card">
+          <div class="card__top indigo">
+            <h1 class="card_question">Random Question?</h1>
+          </div>
+          <p class="card__we">Are you looking for a new device for the first time?</p>
+          <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
+          <div class="card__skipcontainer">
+            <input type="radio" id="qtwo_no" name="qtwo" value="no">
+            <label for="qtwo_no" class="card__skipno">
+              <img src="img/undo.svg" alt="undo">
+              <h4>no</h4>
+            </label>
+
+            <input type="radio" id="qtwo_yes" name="qtwo" value="yes">
+            <label for="qtwo_yes" class="card__skipyes">
+              <h4>yes</h4>
+              <img src="img/redo.svg" alt="redo">
+            </label>
+          </div>
+          <div class="card__choice m--reject"></div>
+          <div class="card__choice m--like"></div>
+          <div class="card__drag"></div>
+        </div>
+
+        <!-- card6 -->
+        <div class="card">
+          <div class="card__top purple">
+            <h1 class="card_question">Creative or Administration?</h1>
+          </div>
+          <p class="card__we">Are you looking for a new device for the first time?</p>
+          <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
+          <div class="card__skipcontainer">
+            <input type="radio" id="qone_no" name="qone" value="no">
+            <label for="qone_no" class="card__skipno">
+              <img src="img/undo.svg" alt="undo">
+              <h4>no</h4>
+            </label>
+
+            <input type="radio" id="qone_yes" name="qone" value="yes">
+            <label for="qone_yes" class="card__skipyes">
+              <h4>yes</h4>
+              <img src="img/redo.svg" alt="redo">
+            </label>
+          </div>
+          <div class="card__choice m--reject"></div>
+          <div class="card__choice m--like"></div>
+          <div class="card__drag"></div>
+        </div>
       </div>
+      <input type="submit" value="Submit">
+      <label for="submit"></label>
+
     </form>
+
+
   </div>
-  <progress class="progress progress1" max="10" value="8"></progress>
+  <progress class="progress progress1" max="10" value="0"></progress>
   <div id="banner-bottom">
     <div class="backandforward">
       <button id="back">
