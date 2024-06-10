@@ -1,15 +1,41 @@
 <?php
 
+/* session_start();
+
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $_SESSION['responses'] = $_POST;
+        header('Location: confirmation.php');
+        exit();
+      }; */
+
+
+?>
+<?php
 session_start();
 
+// Überprüfen, ob ein POST-Request gesendet wurde
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $_SESSION['responses'] = $_POST;
-  header('Location: confirmation.php');
-  exit();
-};
+  // Überprüfen, ob alle Formulareingaben vorhanden sind
+  $formComplete = true;
+  foreach ($_POST as $key => $value) {
+    if (empty($value)) {
+      $formComplete = false;
+      break;
+    }
+  }
 
-echo '<script>console.log(' . json_encode($_SESSION['responses']) . ');</script>';
+  // Wenn alle Eingaben vorhanden sind, speichere sie in der Session und leite weiter
+  if ($formComplete) {
+    $_SESSION['responses'] = $_POST;
+    header('Location: confirmation.php');
+    exit();
+  } else {
+    // Wenn nicht alle Eingaben vorhanden sind, kannst du hier eine Fehlermeldung anzeigen oder andere Aktionen durchführen
+    echo "Bitte füllen Sie alle Felder aus.";
+  }
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -187,7 +213,7 @@ echo '<script>console.log(' . json_encode($_SESSION['responses']) . ');</script>
 
   </div>
   <progress class="progress progress1" max="10" value="0"></progress>
-  <div id="banner-bottom">
+  <!--  <div id="banner-bottom">
     <div class="backandforward">
       <button id="back">
         <img src="img/back.svg" alt="back" />
@@ -197,7 +223,21 @@ echo '<script>console.log(' . json_encode($_SESSION['responses']) . ');</script>
         <h3>next</h3>
         <img src="img/next.svg" alt="next" />
       </button>
+    </div> -->
+
+  <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <div class="backandforward">
+      <button type="submit" id="back" name="back">
+        <img src="img/back.svg" alt="back" />
+        <h3>back</h3>
+      </button>
+      <button type="submit" id="next" name="next">
+        <h3>next</h3>
+        <img src="img/next.svg" alt="next" />
+      </button>
     </div>
+  </form>
+
   </div>
   <?php include "footer.php" ?>
 
