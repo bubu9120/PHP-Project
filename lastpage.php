@@ -57,12 +57,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
         <br>
         <h3>Your request with your answers have been recieved. </h3>
         <br>
-        <p>
-          Contact:
-        </p>
-        <p>
-    Swipe answers:
-        </p>
+        <form method="post" action="">
+        <fieldset id="confirmation">
+            <h2>Benutzerkonto erfolgreich erstellt!</h2>
+
+            <table id="input">
+               <p> Your answers: </p>
+               <tr>
+                    <td>Are your looking for a new device for the first time?</td>
+                    <td><?= $_SESSION["qone"]; ?></td>
+                </tr>
+                <tr>
+                    <td>Creative or Administration?</td>
+                    <td><?= $_SESSION["qtwo"]; ?></td>
+                </tr>
+
+                <tr>
+                    <td>Gender</td>
+                    <td><?= $_SESSION["qtree"]; ?></td>
+                </tr>
+                <tr>
+                    <td>First name</td>
+                    <td><?= $_SESSION["qfour"]; ?></td>
+                </tr>
+                <tr>
+                    <td>Last name</td>
+                    <td><?= $_SESSION["qfive"]; ?></td>
+                </tr>
+                <tr>
+                    <td>Appointment Date</td>
+                    <td><?= $_SESSION["appointment_date"]; ?></td>
+                </tr>
+                <tr>
+                    <td>Appointment time</td>
+                    <td><?= $_SESSION["appointment_time"]; ?></td>
+                </tr>
+                <tr>
+                    <td>Email address</td>
+                    <td><?= $_SESSION["email"]; ?></td>
+                </tr>
+                <tr>
+                    <td>Phone number</td>
+                    <td><?= $_SESSION["phone"]; ?></td>
+                </tr>
+
+
+
+            </table>
+
+            <p>
+                <a href="index.php">Start again</a>
+            </p>
+
+        </fieldset>
+    </form>
       </main>
     </div>
 
