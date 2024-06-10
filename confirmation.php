@@ -2,6 +2,7 @@
 
 session_start();
 
+
 $message = "Anrede: " . $_SESSION["gender"] . "\n";
 $message .= "Vorname: " . $_SESSION["name-first"] . "\n";
 $message .= "Nachname: " . $_SESSION["name-last"] . "\n";
@@ -12,7 +13,7 @@ $message .= "Geburtsdatum: " . $_SESSION["date-of-birth"] . "\n";
 
 $headers = "From:" . $from;
 mail($to, $subject, $message, $headers);
-
+*/
 session_destroy();
 
 ?>
