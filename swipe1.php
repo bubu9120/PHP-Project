@@ -55,11 +55,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form id="swipeForm" action="" method="post">
       <div class="card-cont">
         <!-- card1 -->
-        <div class="card">
+        <div id="card6" class="card">
           <div class="card__top brown">
-            <h1 class="card_question">Is it your first device?</h1>
+            <h1 class="card_question">Administration?</h1>
           </div>
-          <p class="card__we">Are you looking for a new device for the first time?</p>
+          <p class="card__we">Do you do work in administration?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
           <div class="card__skipcontainer">
             <input type="radio" id="qsix_no" name="qsix" value="no">
@@ -80,11 +80,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <!-- card2 -->
-        <div class="card">
+        <div id="card5" class="card">
           <div class="card__top lime">
-            <h1 class="card_question">Mobile or Station?</h1>
+            <h1 class="card_question">Mobile?</h1>
           </div>
-          <p class="card__we">Are you looking for a new device for the first time?</p>
+          <p class="card__we">Do you need to travel a lot during work?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
           <div class="card__skipcontainer">
             <input type="radio" id="qfive_no" name="qfive" value="no">
@@ -105,11 +105,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <!-- card3 -->
-        <div class="card">
+        <div id="card4" class="card">
           <div class="card__top cyan">
-            <h1 class="card_question">Whats your price Range?</h1>
+            <h1 class="card_question">Mac?</h1>
           </div>
-          <p class="card__we">Are you looking for a new device for the first time?</p>
+          <p class="card__we">Do you prefere Apple devices?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
           <div class="card__skipcontainer">
             <input type="radio" id="qfour_no" name="qfour" value="no">
@@ -130,11 +130,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <!-- card4 -->
-        <div class="card">
+        <div id="card3" class="card">
           <div class="card__top indigo">
-            <h1 class="card_question">Business or Private?</h1>
+            <h1 class="card_question">How much?</h1>
           </div>
-          <p class="card__we">Are you looking for a new device for the first time?</p>
+          <p class="card__we">Do you wanna spent more than a thousand Euros?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
           <div class="card__skipcontainer">
             <input type="radio" id="qthree_no" name="qthree" value="no">
@@ -155,11 +155,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <!-- card5 -->
-        <div class="card">
+        <div id="card2" class="card">
           <div class="card__top indigo">
-            <h1 class="card_question">Random Question?</h1>
+            <h1 class="card_question">Gaming?</h1>
           </div>
-          <p class="card__we">Are you looking for a new device for the first time?</p>
+          <p class="card__we">Do you use your device for gaming?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
           <div class="card__skipcontainer">
             <input type="radio" id="qtwo_no" name="qtwo" value="no">
@@ -180,11 +180,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <!-- card6 -->
-        <div class="card">
+        <div id="card1" class="card">
           <div class="card__top purple">
-            <h1 class="card_question">Creative or Administration?</h1>
+            <h1 class="card_question">creative work?</h1>
           </div>
-          <p class="card__we">Are you looking for a new device for the first time?</p>
+          <p class="card__we">For what do you need the device?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
           <div class="card__skipcontainer">
             <input type="radio" id="qone_no" name="qone" value="no">
@@ -212,7 +212,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   </div>
   <progress class="progress progress1" max="10" value="0"></progress>
-  <!--  <div id="banner-bottom">
+  <div id="banner-bottom">
     <div class="backandforward">
       <button id="back">
         <img src="img/back.svg" alt="back" />
@@ -222,20 +222,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h3>next</h3>
         <img src="img/next.svg" alt="next" />
       </button>
-    </div> -->
-
-  <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    <div class="backandforward">
-      <button type="submit" id="back" name="back">
-        <img src="img/back.svg" alt="back" />
-        <h3>back</h3>
-      </button>
-      <button type="submit" id="next" name="next">
-        <h3>next</h3>
-        <img src="img/next.svg" alt="next" />
-      </button>
     </div>
-  </form>
+
+
+    <!-- <div class="backandforward">
+    <button id="back" name="back">
+      <img src="img/back.svg" alt="back" />
+      <h3>back</h3>
+    </button>
+    <button id="next" name="next">
+      <h3>next</h3>
+      <img src="img/next.svg" alt="next" />
+    </button>
+  </div> -->
+
 
   </div>
   <?php include "footer.php" ?>

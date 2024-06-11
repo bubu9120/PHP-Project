@@ -157,6 +157,7 @@ $(document).ready(function () {
         `#${$card.find('input[type="radio"][value="yes"]').attr("id")}`
       ).checked = true;
       frontCardId += 1;
+      console.log(frontCardId);
       if (frontCardId >= 6) {
         document.getElementById("swipeForm").submit();
       }
@@ -167,6 +168,7 @@ $(document).ready(function () {
         `#${$card.find('input[type="radio"][value="no"]').attr("id")}`
       ).checked = true;
       frontCardId += 1;
+      console.log(frontCardId);
       if (frontCardId >= 6) {
         document.getElementById("swipeForm").submit();
       }
@@ -224,24 +226,40 @@ $(document).ready(function () {
     });
   });
 
-  /* $("#next").on("click", function () {
-    if (animating) return;
-    $card = $(".card:not(.inactive)").first(); // Wähle die vorderste Karte aus
-    $cardReject = $(".card__choice.m--reject", $card);
-    $cardLike = $(".card__choice.m--like", $card);
-    pullDeltaX = decisionVal + 1; // Trigger swipe right
-    release();
+  $("#next").on("click", function () {
+    var element = document.querySelector(".alreadyBeenHere");
+    var progressBar = document.querySelector(".progress1");
+
+    var elements = document.querySelectorAll(".alreadyBeenHere");
+
+    if (elements.length > 0) {
+      var lastElement = elements[elements.length - 1];
+
+      lastElement.classList.remove("alreadyBeenHere");
+      lastElement.classList.add("below");
+      frontCardId += 1;
+      progressBar.value += 1;
+      console.log(frontCardId);
+    } else {
+      return;
+    }
   });
 
   $("#back").on("click", function () {
-    if (animating) return;
-    frontCardId -= 1;
-    $card = $(".card").eq(frontCardId);
-    $cardReject = $(".card__choice.m--reject", $card);
-    $cardLike = $(".card__choice.m--like", $card);
-    $card.removeClass("below").attr("style", ""); // Make card visible again
-    frontCardId -= 1;
-  }); */
+    // Select the first element with the class 'below'
+    var element = document.querySelector(".below");
+    var progressBar = document.querySelector(".progress1");
+    // Check if the element exists and remove the class 'below'
+    if (element) {
+      element.classList.remove("below");
+      element.classList.add("alreadyBeenHere");
+      frontCardId -= 1;
+      progressBar.value -= 1;
+      console.log(frontCardId);
+    } else {
+      return;
+    }
+  });
 });
 
 function updateProgressBar(frontCardId) {
