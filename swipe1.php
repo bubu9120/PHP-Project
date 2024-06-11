@@ -27,11 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Wenn alle Eingaben vorhanden sind, speichere sie in der Session und leite weiter
   if ($formComplete) {
     $_SESSION['responses'] = $_POST;
-    header('Location: confirmation.php');
+    header('Location: overview.php');
     exit();
   } else {
-    // Wenn nicht alle Eingaben vorhanden sind, kannst du hier eine Fehlermeldung anzeigen oder andere Aktionen durchführen
-    echo "Bitte füllen Sie alle Felder aus.";
+    return;
   }
 }
 ?>

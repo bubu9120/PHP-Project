@@ -224,7 +224,7 @@ $(document).ready(function () {
     });
   });
 
-  $("#next").on("click", function () {
+  /* $("#next").on("click", function () {
     if (animating) return;
     $card = $(".card:not(.inactive)").first(); // Wähle die vorderste Karte aus
     $cardReject = $(".card__choice.m--reject", $card);
@@ -241,7 +241,7 @@ $(document).ready(function () {
     $cardLike = $(".card__choice.m--like", $card);
     $card.removeClass("below").attr("style", ""); // Make card visible again
     frontCardId -= 1;
-  });
+  }); */
 });
 
 function updateProgressBar(frontCardId) {

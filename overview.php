@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -35,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
             ${"error_q$i"} = "Bitte beantworten Sie Frage $i.";
         }
     }
-
     if (!$hasError) {
         header('Location: ./step-2.php');
         exit();
