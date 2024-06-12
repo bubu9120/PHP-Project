@@ -1,6 +1,7 @@
 <?php
+/* session_start();
 session_start();
-
+echo '<script>console.log(' . json_encode($_SESSION['responses']) . ');</script>';
 $error = "";
 $message = "Are your looking for a new device for the first time? " . $_SESSION["qone"] . "\n";
 $message .= "Question2 " . $_SESSION["qtwo"] . "\n";
@@ -38,6 +39,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
         header('Location: ./step-2.php');
         exit();
     }
+} */
+session_start();
+
+// Überprüfen, ob die Session-Daten vorhanden sind
+if (isset($_SESSION['responses']) && !empty($_SESSION['responses'])) {
+    $responses = $_SESSION['responses'];
+} else {
+    // Falls keine Daten in der Session vorhanden sind, zeige eine Nachricht an
+    echo "Keine Daten in der Session gefunden.";
+    exit();
+}
+
+function isChecked($sessionData, $question, $value)
+{
+    return isset($sessionData[$question]) && $sessionData[$question] === $value ? 'checked' : '';
 }
 ?>
 
@@ -61,52 +77,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
                 <br>
                 <p>
                     <label for="qone">Are your looking for a new device for the first time?</label><br>
-                    <input type="radio" name="qone" id="qonedef" value="def" required>
-                    <label for="qonedef"></label>
-                    <input type="radio" name="qone" id="qoneyes" value="yes" required>
+                    <input type="radio" name="qone" id="qoneyes" value="yes" <?= isChecked($responses, 'qone', 'yes') ?> required>
                     <label for="qoneyes">Yes</label>
-                    <input type="radio" name="qone" id="qoneno" value="no" required>
+                    <input type="radio" name="qone" id="qoneno" value="no" <?= isChecked($responses, 'qone', 'no') ?> required>
                     <label for="qoneno">No</label>
                 </p>
                 <br>
                 <p>
                     <label for="qtwo">Creative or Administration?</label><br>
-                    <input type="radio" name="qtwo" id="qtwodef" value="def" required>
-                    <label for="qtwodef"></label>
-                    <input type="radio" name="qtwo" id="qtwoyes" value="yes" required>
+                    <input type="radio" name="qtwo" id="qtwoyes" value="yes" <?= isChecked($responses, 'qtwo', 'yes') ?> required>
                     <label for="qtwoyes">Yes</label>
-                    <input type="radio" name="qtwo" id="qtwono" value="no" required>
+                    <input type="radio" name="qtwo" id="qtwono" value="no" <?= isChecked($responses, 'qtwo', 'no') ?> required>
                     <label for="qtwono">No</label>
                 </p>
                 <br>
                 <p>
                     <label for="qthree">Question 3</label><br>
-                    <input type="radio" name="qthree" id="qthreedef" value="def" required>
-                    <label for="qthreedef"></label>
-                    <input type="radio" name="qthree" id="qthreeyes" value="yes" required>
+                    <input type="radio" name="qthree" id="qthreeyes" value="yes" <?= isChecked($responses, 'qthree', 'yes') ?> required>
                     <label for="qthreeyes">Yes</label>
-                    <input type="radio" name="qthree" id="qthreeno" value="no" required>
+                    <input type="radio" name="qthree" id="qthreeno" value="no" <?= isChecked($responses, 'qthree', 'no') ?> required>
                     <label for="qthreeno">No</label>
                 </p>
                 <br>
                 <p>
                     <label for="qfour">Question 4</label><br>
-                    <input type="radio" name="qfour" id="qfourdef" value="def" required>
-                    <label for="qfourdef"></label>
-                    <input type="radio" name="qfour" id="qfouryes" value="yes" required>
-                    <label for="qfouryes"></label>
-                    <input type="radio" name="qfour" id="qfourno" value="no" required>
-                    <label for="qfourno"></label>
+                    <input type="radio" name="qfour" id="qfouryes" value="yes" <?= isChecked($responses, 'qfour', 'yes') ?> required>
+                    <label for="qfouryes">Yes</label>
+                    <input type="radio" name="qfour" id="qfourno" value="no" <?= isChecked($responses, 'qfour', 'no') ?> required>
+                    <label for="qfourno">No</label>
                 </p>
                 <br>
                 <p>
                     <label for="qfive">Question 5</label><br>
-                    <input type="radio" name="qfive" id="qfivedef" value="def" required>
-                    <label for="qfivedef"></label>
-                    <input type="radio" name="qfive" id="qfiveyes" value="yes" required>
+                    <input type="radio" name="qfive" id="qfiveyes" value="yes" <?= isChecked($responses, 'qfive', 'yes') ?> required>
                     <label for="qfiveyes">Yes</label>
-                    <input type="radio" name="qfive" id="qfiveno" value="no" required>
+                    <input type="radio" name="qfive" id="qfiveno" value="no" <?= isChecked($responses, 'qfive', 'no') ?> required>
                     <label for="qfiveno">No</label>
+                </p>
+                <br>
+                <p>
+                    <label for="qsix">Question 6</label><br>
+                    <input type="radio" name="qsix" id="qsixyes" value="yes" <?= isChecked($responses, 'qsix', 'yes') ?> required>
+                    <label for="qsixyes">Yes</label>
+                    <input type="radio" name="qsix" id="qsixno" value="no" <?= isChecked($responses, 'qsix', 'no') ?> required>
+                    <label for="qsixno">No</label>
                 </p>
                 <p>
                     <br />
@@ -115,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
             </fieldset>
         </form>
     </div>
-    <progress class="progress progress1" max="10" value="8"></progress>
+    <progress class="progress progress1" max="10" value="7"></progress>
     <div id="banner-bottom">
         <button id="start-hr">
             <h3>check your device</h3>
