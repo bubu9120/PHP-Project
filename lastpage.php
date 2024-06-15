@@ -19,28 +19,25 @@ session_start();
 <body>
     <!--     <?php include "header.php" ?> -->
   
-    <div id="banner">
-      <main class="index-text-container">
-        <h1>Thanks for your help request!</h1>
+  
+
+
+    <div id="banner-no-image-swipe">
+    <form method="post" action="">
+      <h1 class="hellotext">We help you to find your <br>right device!</h1>
+      
+      <fieldset>
+        <div class="marginleft">
+      <h2>Thanks for your help request!</h2>
         <br>
         <h3>Your request with your answers have been recieved. </h3>
         <br>
         <form method="post" action="lastpage.php">
-        <fieldset id="confirmation">
-            <h2>Benutzerkonto erfolgreich erstellt!</h2>
+      
 
             <table id="input">
                <p> Your answers: </p>
-               <tr>
-                    <td>Are your looking for a new device for the first time?</td>
-                    <td><?= $_SESSION["qone"]; ?></td>
-                </tr>
-                <tr>
-                    <td>Creative or Administration?</td>
-                    <td><?= $_SESSION["qtwo"]; ?></td>
-                </tr>
-
-                <tr>
+               
                     <td>Gender</td>
                     <td><?= $_SESSION["gender"]; ?></td>
                 </tr>
@@ -70,15 +67,22 @@ session_start();
                 </tr>
                 <tr>
             </table>
+            </div>
+      </fieldset>
 
-            <p>
-                <a href="index.html">Start again</a>
-            </p>
 
-        </fieldset>
-    </form>
-      </main>
-    </div>
+  </div>
+
+
+  <progress class="progress progress1" max="10" value="10"></progress>
+  <div id="banner-bottom">
+    <button id="start-hr" name="jumpToStart">
+      <h3>Jump to start</h3>
+      <img src="img/gesture-next.svg" alt="" />
+    </button>
+
+  </div>
+  </form>
 
     <?php include "footer.php" ?>
 </body>
