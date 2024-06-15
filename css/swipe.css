@@ -2,10 +2,7 @@
   height: var(--headerH);
   background: #002942;
 }
-.swipe-form {
-  display: flex;
-  position: relative;
-}
+
 .content {
   overflow: hidden;
   position: relative;
@@ -26,6 +23,11 @@
 .card {
   z-index: 2;
   position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
   width: 352px;
   height: 568px;
   background-color: white;
@@ -170,6 +172,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  bottom: 0px;
 }
 
 .card__skipno,
@@ -195,6 +199,7 @@
 
 input {
   visibility: hidden;
+  display: none;
 }
 
 .backandforward {
