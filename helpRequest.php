@@ -1,75 +1,72 @@
 <?php
 session_start();
 
+$formComplete = true;
+$error_messages = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $formComplete = true;
-    $error_messages = [];
-
+    // Validate phone number
+    $phone = trim($_POST["phone"]);
     $pattern = '/^([0-9]{10}|[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2})$/';
 
     if (preg_match($pattern, $phone)) {
-        echo "Phone number is valid.";
+        $_SESSION['phone'] = htmlspecialchars($phone);
     } else {
-        echo "Invalid phone number format. Please enter a 10-digit number or a number in the format XXX XXX XX XX.";
+        $error_messages['phone'] = "Invalid phone number format. Please enter a 10-digit number or a number in the format XXX XXX XX XX.";
+        $formComplete = false;
+    }
+
+    if (empty($_POST["gender"])) {
+        $error_messages['gender'] = "Please select your gender";
+        $formComplete = false;
+    }
+
+    if (strlen(trim($_POST["name-first"])) < 2 || strlen(trim($_POST["name-first"])) > 50) {
+        $error_messages['name-first'] = "Please enter a valid first name (2-50 characters)";
+        $formComplete = false;
+    }
+
+    if (strlen(trim($_POST["name-last"])) < 2 || strlen(trim($_POST["name-last"])) > 50) {
+        $error_messages['name-last'] = "Please enter a valid last name (2-50 characters)";
+        $formComplete = false;
+    }
+
+    if (empty($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+        $error_messages['email'] = "Please enter a valid email address";
+        $formComplete = false;
+    }
+
+    if (empty($_POST["appointment_date"])) {
+        $error_messages['appointment_date'] = "Please select an appointment date";
+        $formComplete = false;
+    }
+
+    if (empty($_POST["appointment_time"])) {
+        $error_messages['appointment_time'] = "Please select an appointment time";
+        $formComplete = false;
+    }
+
+    if (empty($_POST["phone"])) {
+        $error_messages['phone'] = "Please enter a phone number";
+        $formComplete = false;
+    }
+
+    if ($formComplete) {
+        // Store validated data in session
+        $_SESSION['gender'] = htmlspecialchars($_POST["gender"]);
+        $_SESSION['name-first'] = htmlspecialchars(trim($_POST["name-first"]));
+        $_SESSION['name-last'] = htmlspecialchars(trim($_POST["name-last"]));
+        $_SESSION['email'] = htmlspecialchars($_POST["email"]);
+        $_SESSION['appointment_date'] = htmlspecialchars($_POST["appointment_date"]);
+        $_SESSION['appointment_time'] = htmlspecialchars($_POST["appointment_time"]);
+
+        // Redirect to next page
+        if (isset($_POST['send'])) {
+            header('Location: lastpage.php');
+            exit();
+        }
     }
 }
-
-
-if (empty($_POST["gender"])) {
-    $error_messages['gender'] = "Please select your gender";
-    $formComplete = false;
-}
-
-if (strlen(trim($_POST["name-first"])) < 2 || strlen(trim($_POST["name-first"])) > 50) {
-    $error_messages['name-first'] = "Please enter a valid first name (2-50 characters)";
-    $formComplete = false;
-}
-
-if (strlen(trim($_POST["name-last"])) < 2 || strlen(trim($_POST["name-last"])) > 50) {
-    $error_messages['name-last'] = "Please enter a valid last name (2-50 characters)";
-    $formComplete = false;
-}
-
-if (empty($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-    $error_messages['email'] = "Please enter a valid email address";
-    $formComplete = false;
-}
-
-if (empty($_POST["appointment_date"])) {
-    $error_messages['appointment_date'] = "Please select an appointment date";
-    $formComplete = false;
-}
-
-if (empty($_POST["appointment_time"])) {
-    $error_messages['appointment_time'] = "Please select an appointment time";
-    $formComplete = false;
-}
-
-if (empty($_POST["phone"])) {
-    $error_messages['phone'] = "Please enter a phone number";
-    $formComplete = false;
-}
-
-if ($formComplete) {
-    // Store validated data in session
-    $_SESSION['gender'] = htmlspecialchars($_POST["gender"]);
-    $_SESSION['name-first'] = htmlspecialchars(trim($_POST["name-first"]));
-    $_SESSION['name-last'] = htmlspecialchars(trim($_POST["name-last"]));
-    $_SESSION['email'] = htmlspecialchars($_POST["email"]);
-    $_SESSION['appointment_date'] = htmlspecialchars($_POST["appointment_date"]);
-    $_SESSION['appointment_time'] = htmlspecialchars($_POST["appointment_time"]);
-    $_SESSION['phone'] = htmlspecialchars($_POST["phone"]);
-
-    // Redirect to next page
-
-
-    if (isset($_POST['send'])) {
-        header('Location: lastpage.php');
-    }
-    exit();
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -155,8 +152,6 @@ if ($formComplete) {
         </div>
     </div>
     </form>
-
-    <?php include "footer.php"; ?>
 </body>
 
 </html>
