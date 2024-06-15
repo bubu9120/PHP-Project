@@ -119,12 +119,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     </div>
 
-                    <div class="item">
-                        <input class="submit" type="submit" name="helpRequest" value="Help request">
-                        <input class="submit" type="submit" value="Submit to Your Device" name="yourDevice">
-                    </div>
 
+                <p>
+                    <br />
+                    <input type="submit" name="next" value="Request Help" id="requestsubmit">
+                </p>
 
+                    
+                  
+                  
+  
+                    <div id="banner-bottom">
 
             </fieldset>
         </form>
@@ -132,10 +137,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <progress class="progress progress1" max="10" value="7"></progress>
     <div id="banner-bottom">
-        <button id="start-hr">
-            <h3>check your device</h3>
-            <img src="img/gesture-next.svg" alt="" />
-        </button>
+        <a class="checkyourdevice" href="yourdevice.php">Check your device</a>
+        <img src="img/gesture-next.svg" alt="" />
+    </div>
     </div>
 
     <?php include "footer.php" ?>
