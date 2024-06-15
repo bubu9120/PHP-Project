@@ -1,10 +1,10 @@
 /* Style the form */
-form {
+/* form {
   margin: 100px auto;
   padding: 50px;
   width: 25%;
   min-width: 300px;
-}
+} */
 
 /* Style the form content */
 .form-content {
@@ -28,10 +28,11 @@ option,
 output,
 select,
 textarea {
-  padding: 10px;
+  padding: 0;
   font-size: 1em;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   border: 1px solid #777;
+  border-radius: 40px;
 }
 
 /* Style the labels */
