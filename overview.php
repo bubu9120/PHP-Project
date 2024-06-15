@@ -119,10 +119,13 @@ if ($formComplete) {
                         </div>
                     </div>
 
-                    <div class="item">
-                        <input class="submit" type="submit" name="helpRequest" value="Help request">
-                       <input class="submit" type="submit" value="Submit to Your Device" name="yourDevice">
-                    </div>
+                <p>
+                    <br />
+                    <input type="submit" name="next" value="Request Help" id="requestsubmit">
+                </p>
+
+                    
+                  
                   
   
                     <div id="banner-bottom">
