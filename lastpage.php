@@ -2,9 +2,8 @@
 
 session_start();
 
-$phone = $_POST['phone'];
 
-echo $phone ;
+
 
 ?>
 

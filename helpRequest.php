@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body>
-    <div id="banner-no-image">
+    <div id="banner-no-image" class="requestdiv">
         <form method="post" action="">
             <h1 class="hellotext">We help you to find your <br>right device!</h1>
             <fieldset id="helprequest-forms">
@@ -112,18 +112,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <span class="error-text"><?= $error_messages['phone'] ?? ""; ?></span>
                 </p>
                 <p>
+                    <label for="agb">I'm OK with the AGB's</label>
+                    <input type="checkbox" id="agb" name="agb">
+                </p>
+                <p>
                     <br />
-                    <input type="submit" name="next" value="Request Help">
+                    <input type="submit" name="next" value="Request Help" id="requestsubmit">
                 </p>
             </fieldset>
         </form>
     </div>
     <progress class="progress progress1" max="10" value="8"></progress>
     <div id="banner-bottom">
-        <button id="start-hr">
-            <h3>Check Your Device</h3>
-            <img src="img/gesture-next.svg" alt="" />
-        </button>
+        <a class="checkyourdevice" href="yourdevice.php">Check your device</a>
+        <img src="img/gesture-next.svg" alt="" />
     </div>
     <?php include "footer.php"; ?>
 </body>
