@@ -154,6 +154,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="card__drag"></div>
       </div>
 
+
+       
       <!-- card5 -->
       <div id="card2" class="card">
         <div class="card__top indigo">
@@ -248,9 +250,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </html>
 
 
-<style>
-
-</style>
 <!-- <!DOCTYPE html>
 <html>
 

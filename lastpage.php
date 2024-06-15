@@ -2,41 +2,10 @@
 
 session_start();
 
-$error_gender = "";
-$error_name_first = "";
-$error_name_last = "";
+$phone = $_POST['phone'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
-    ini_set("display_errors", 1);
-    error_reporting(E_ALL);
-    $hasError = false;
+echo $phone ;
 
-    if (isset($_POST["gender"])) {
-        $_SESSION["gender"] = htmlspecialchars($_POST["gender"]);
-    } else {
-        $error_gender = "Bitte wählen Sie eine Anrede aus.";
-        $hasError = true;
-    }
-
-    if (strlen($_POST["name-first"]) > 1 && strlen($_POST["name-first"]) <= 50) {
-        $_SESSION["name-first"] = htmlspecialchars(trim($_POST["name-first"]));
-    } else {
-        $error_name_first = "Bitte geben Sie einen Vornamen (mit 2 bis 50 Zeichen) ein.";
-        $hasError = true;
-    }
-
-    if (strlen($_POST["name-last"]) > 1 && strlen($_POST["name-last"]) <= 50) {
-        $_SESSION["name-last"] = htmlspecialchars(trim($_POST["name-last"]));
-    } else {
-        $error_name_last = "Bitte geben Sie einen Nachnamen (mit 2 bis 50 Zeichen) ein.";
-        $hasError = true;
-    }
-
-    if (!$hasError) {
-        header('Location: ./step-2.php');
-        exit();
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
         <br>
         <h3>Your request with your answers have been recieved. </h3>
         <br>
-        <form method="post" action="">
+        <form method="post" action="lastpage.php">
         <fieldset id="confirmation">
             <h2>Benutzerkonto erfolgreich erstellt!</h2>
 
@@ -74,15 +43,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
 
                 <tr>
                     <td>Gender</td>
-                    <td><?= $_SESSION["qtree"]; ?></td>
+                    <td><?= $_SESSION["gender"]; ?></td>
                 </tr>
                 <tr>
                     <td>First name</td>
-                    <td><?= $_SESSION["qfour"]; ?></td>
+                    <td><?= $_SESSION["name-first"]; ?></td>
                 </tr>
                 <tr>
                     <td>Last name</td>
-                    <td><?= $_SESSION["qfive"]; ?></td>
+                    <td><?= $_SESSION["name-last"]; ?></td>
                 </tr>
                 <tr>
                     <td>Appointment Date</td>
@@ -97,16 +66,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
                     <td><?= $_SESSION["email"]; ?></td>
                 </tr>
                 <tr>
-                    <td>Phone number</td>
-                    <td><?= $_SESSION["phone"]; ?></td>
+                <td>Phone number</td>
+                <td><?= $_SESSION["phone"]; ?></td>
                 </tr>
-
-
-
+                <tr>
             </table>
 
             <p>
-                <a href="index.php">Start again</a>
+                <a href="index.html">Start again</a>
             </p>
 
         </fieldset>
