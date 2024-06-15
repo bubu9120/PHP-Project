@@ -5,8 +5,17 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $formComplete = true;
     $error_messages = [];
+    
+        $pattern = '/^([0-9]{10}|[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2})$/';
+    
+        if (preg_match($pattern, $phone)) {
+            echo "Phone number is valid.";
+        } else {
+            echo "Invalid phone number format. Please enter a 10-digit number or a number in the format XXX XXX XX XX.";
+        }
+    }
 
-    // Validate each field
+
     if (empty($_POST["gender"])) {
         $error_messages['gender'] = "Please select your gender";
         $formComplete = false;
@@ -116,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </p>
                 <p>
                     <label for="phone">Phone Number</label><br />
-                    <input type="tel" id="phone" name="phone" pattern="([0-9]{10}|[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2})" value="<?= $_POST["phone"] ?? ""; ?>" required>
+                    <input type="tel" id="phone" name="phone" value="<?= $_POST["phone"] ?? ""; ?>" required>
                     <span class="error-text"><?= $error_messages['phone'] ?? ""; ?></span>
                 </p>
                 <p>
