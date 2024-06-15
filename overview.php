@@ -23,24 +23,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Überprüfen, ob alle Formulareingaben vorhanden sind
     $formComplete = true;
     foreach ($_POST as $key => $value) {
-      if (empty($value)) {
-        $formComplete = false;
-        break;
-      }
+        if (empty($value)) {
+            $formComplete = false;
+            break;
+        }
     }
 
 
-if ($formComplete) {
-    $_SESSION['responses'] = $_POST;
-    if (isset($_POST['helpRequest'])) {
-        header('Location: helpRequest.php');
-    } elseif (isset($_POST['yourDevice'])) {
-        header('Location: yourdevice.php');
+    if ($formComplete) {
+        $_SESSION['responses'] = $_POST;
+        if (isset($_POST['helpRequest'])) {
+            header('Location: helpRequest.php');
+        } elseif (isset($_POST['yourDevice'])) {
+            header('Location: yourdevice.php');
+        }
+        exit();
+    } else {
+        echo "Bitte füllen Sie alle Felder aus.";
     }
-    exit();
-} else {
-    echo "Bitte füllen Sie alle Felder aus.";
-}
 }
 ?>
 
@@ -119,6 +119,7 @@ if ($formComplete) {
                         </div>
                     </div>
 
+
                 <p>
                     <br />
                     <input type="submit" name="next" value="Request Help" id="requestsubmit">
@@ -129,11 +130,10 @@ if ($formComplete) {
                   
   
                     <div id="banner-bottom">
+
             </fieldset>
         </form>
     </div>
-
-   
 
     <progress class="progress progress1" max="10" value="7"></progress>
     <div id="banner-bottom">

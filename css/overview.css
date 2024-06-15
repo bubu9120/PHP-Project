@@ -2,6 +2,7 @@
   margin-top: 36px;
   margin-left: 36px;
 }
+
 .item {
   margin-top: 24px;
   display: flex;
@@ -39,4 +40,15 @@ card__title {
 .submit {
   padding: 5px;
   color: white;
+}
+
+/* yourDevice page content  */
+.macbook {
+  display: none;
+}
+.surface {
+  display: none;
+}
+.dell {
+  display: none;
 }
