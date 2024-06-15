@@ -126,14 +126,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <progress class="progress progress1" max="10" value="7"></progress>
     <div id="banner-bottom">
-        <button id="start-hr" name="yourDevice">
+        <button id="start-hr" name="yourDevice" value="your Device">
             <h3>Check your device</h3>
             <img src="img/gesture-next.svg" alt="" />
         </button>
     </div>
     </form>
-    </div>
-
     <?php include "footer.php" ?>
 </body>
 
