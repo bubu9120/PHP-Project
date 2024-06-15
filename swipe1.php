@@ -182,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- card6 -->
         <div id="card1" class="card">
           <div class="card__top purple">
-            <h1 class="card_question">creative work?</h1>
+            <h1 class="card_question">Creative work?</h1>
           </div>
           <p class="card__we">For what do you need the device?</p>
           <div class="card__img"><img src="img/SwipeCard1.svg" alt="bild"></div>
@@ -248,9 +248,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </html>
 
 
-<style>
-
-</style>
 <!-- <!DOCTYPE html>
 <html>
 
