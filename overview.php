@@ -137,10 +137,9 @@ if ($formComplete) {
 
     <progress class="progress progress1" max="10" value="7"></progress>
     <div id="banner-bottom">
-        <button id="start-hr">
-            <h3>check your device</h3>
-            <img src="img/gesture-next.svg" alt="" />
-        </button>
+        <a class="checkyourdevice" href="yourdevice.php">Check your device</a>
+        <img src="img/gesture-next.svg" alt="" />
+    </div>
     </div>
 
     <?php include "footer.php" ?>
