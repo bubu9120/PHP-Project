@@ -1,45 +1,4 @@
 <?php
-/* session_start();
-session_start();
-echo '<script>console.log(' . json_encode($_SESSION['responses']) . ');</script>';
-$error = "";
-$message = "Are your looking for a new device for the first time? " . $_SESSION["qone"] . "\n";
-$message .= "Question2 " . $_SESSION["qtwo"] . "\n";
-$message .= "Question 3 " . $_SESSION["qtree"] . "\n";
-$message .= "Question 4 " . $_SESSION["qfour"] . "\n";
-$message .= "Question 5 " . $_SESSION["gfive"] . "\n";
-
-$headers = "From:" . $from;
-mail($to, $subject, $message, $headers);
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["next"])) {
-    ini_set("display_errors", 1);
-    error_reporting(E_ALL);
-    $hasError = false;
-
-    if (isset($_POST["qone"])) {
-        $_SESSION["qone"] = htmlspecialchars($_POST["qone"]);
-    } else {
-        $error_qone = "Please swipe the card";
-        $hasError = true;
-    }
-
-
-
-    for ($i = 1; $i <= 5; $i++) {
-        if (isset($_POST["q$i"])) {
-            $_SESSION["q$i"] = htmlspecialchars($_POST["q$i"]);
-        } else {
-            $hasError = true;
-            ${"error_q$i"} = "Bitte beantworten Sie Frage $i.";
-        }
-    }
-    if (!$hasError) {
-        header('Location: ./step-2.php');
-        exit();
-    }
-} */
 session_start();
 
 // Überprüfen, ob die Session-Daten vorhanden sind
