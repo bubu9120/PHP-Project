@@ -2,6 +2,12 @@
 
 session_start();
 
+ 
+if (isset($_POST['yourDevice'])) {
+      header('Location: yourdevice.php');
+      exit();
+  }
+
 
 
 
@@ -76,12 +82,11 @@ session_start();
 
   <progress class="progress progress1" max="10" value="10"></progress>
   <div id="banner-bottom">
-    <button id="start-hr" name="jumpToStart">
-      <h3>Jump to start</h3>
-      <img src="img/gesture-next.svg" alt="" />
-    </button>
-
-  </div>
+        <button id="start-hr" name="yourDevice" value="your Device">
+            <h3>Check your device</h3>
+            <img src="img/gesture-next.svg" alt="" />
+        </button>
+    </div>
   </form>
 
     <?php include "footer.php" ?>
