@@ -116,15 +116,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <label for="qsixyes">Yes</label>
                         </div>
                     </div>
-                    <p>
-                        <br />
-                        <input type="submit" name="helpRequest" value="Request Help" id="requestsubmit">
-                    </p>
+
             </fieldset>
 
     </div>
 
     <progress class="progress progress1" max="10" value="7"></progress>
+    <div id="banner-bottom">
+        <div class="backandforward">
+            <button id="back" name="yourDevice" value="your Device">
+                <img src="img/back.svg" alt="back" />
+                <h3>Your Device</h3>
+            </button>
+            <button id="next" name="helpRequest" value="Request Help">
+                <h3>Help Request?</h3>
+                <img src="img/next.svg" alt="next" />
+            </button>
+        </div>
+    </div>
+
+
     <div id="banner-bottom">
         <button id="start-hr" name="yourDevice" value="your Device">
             <h3>Check your device</h3>
