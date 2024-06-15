@@ -54,8 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Redirect to next page
 
-        $_SESSION['responses'] = $_POST;
-        if (isset($_POST['next'])) {
+
+        if (isset($_POST['send'])) {
             header('Location: lastpage.php');
         }
         exit();
@@ -68,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/Logo.svg" type="image/x-icon" />
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="css/stylesheet.css">
 </head>
