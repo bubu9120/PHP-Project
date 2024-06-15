@@ -38,8 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header('Location: yourdevice.php');
         }
         exit();
-    } else {
-        echo "Bitte füllen Sie alle Felder aus.";
     }
 }
 ?>
@@ -118,28 +116,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <label for="qsixyes">Yes</label>
                         </div>
                     </div>
-
-
-                <p>
-                    <br />
-                    <input type="submit" name="next" value="Request Help" id="requestsubmit">
-                </p>
-
-                    
-                  
-                  
-  
-                    <div id="banner-bottom">
-
+                    <p>
+                        <br />
+                        <input type="submit" name="helpRequest" value="Request Help" id="requestsubmit">
+                    </p>
             </fieldset>
-        </form>
+
     </div>
 
     <progress class="progress progress1" max="10" value="7"></progress>
     <div id="banner-bottom">
-        <a class="checkyourdevice" href="yourdevice.php">Check your device</a>
-        <img src="img/gesture-next.svg" alt="" />
+        <button id="start-hr" name="yourDevice">
+            <h3>Check your device</h3>
+            <img src="img/gesture-next.svg" alt="" />
+        </button>
     </div>
+    </form>
     </div>
 
     <?php include "footer.php" ?>
