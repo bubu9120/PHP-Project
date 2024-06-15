@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $formComplete = true;
     $error_messages = [];
@@ -10,32 +11,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error_messages['gender'] = "Please select your gender";
         $formComplete = false;
     }
-    
+
     if (strlen(trim($_POST["name-first"])) < 2 || strlen(trim($_POST["name-first"])) > 50) {
         $error_messages['name-first'] = "Please enter a valid first name (2-50 characters)";
         $formComplete = false;
     }
-    
+
     if (strlen(trim($_POST["name-last"])) < 2 || strlen(trim($_POST["name-last"])) > 50) {
         $error_messages['name-last'] = "Please enter a valid last name (2-50 characters)";
         $formComplete = false;
     }
-    
+
     if (empty($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
         $error_messages['email'] = "Please enter a valid email address";
         $formComplete = false;
     }
-    
+
     if (empty($_POST["appointment_date"])) {
         $error_messages['appointment_date'] = "Please select an appointment date";
         $formComplete = false;
     }
-    
+
     if (empty($_POST["appointment_time"])) {
         $error_messages['appointment_time'] = "Please select an appointment time";
         $formComplete = false;
     }
-    
+
     if (empty($_POST["phone"])) {
         $error_messages['phone'] = "Please enter a phone number";
         $formComplete = false;
@@ -52,7 +53,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['phone'] = htmlspecialchars($_POST["phone"]);
 
         // Redirect to next page
-        header('Location: lastpage.php');
+
+        $_SESSION['responses'] = $_POST;
+        if (isset($_POST['next'])) {
+            header('Location: lastpage.php');
+        }
         exit();
     }
 }
@@ -60,18 +65,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="css/stylesheet.css">
 </head>
+
 <body>
     <div id="banner-no-image" class="requestdiv">
         <form method="post" action="">
             <h1 class="hellotext">We help you to find your <br>right device!</h1>
             <fieldset id="helprequest-forms">
-                <h2>Help request.</h2>
-                <p>Please fill the form. We will contact you as soon as possible.</p>
+                <h1>Help request.</h1>
+                <br>
                 <p>
                     <input type="radio" name="gender" id="male" value="Herr" required <?= isset($_POST["gender"]) && $_POST["gender"] == "Herr" ? "checked" : ""; ?>>
                     <label for="male">Male</label>
@@ -115,18 +122,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="agb">I'm OK with the AGB's</label>
                     <input type="checkbox" id="agb" name="agb">
                 </p>
-                <p>
-                    <br />
-                    <input type="submit" name="next" value="Request Help" id="requestsubmit">
-                </p>
+
+                <!-- <label for="send">
+                    <input type="submit" name="send" value="Request Help" id="requestsubmit">
+                    <img src="img/redo.svg" alt="redo">
+                </label> -->
             </fieldset>
-        </form>
+
     </div>
     <progress class="progress progress1" max="10" value="8"></progress>
+
     <div id="banner-bottom">
-        <a class="checkyourdevice" href="yourdevice.php">Check your device</a>
-        <img src="img/gesture-next.svg" alt="" />
+        <div class="backandforward">
+            <button id="back" onclick="window.location.href = 'yourdevice.php';">
+                <img src="img/back.svg" alt="back" />
+                <h3>Your Device</h3>
+            </button>
+            <button id="next" name="send" value="send Request">
+                <h3>send Request</h3>
+                <img src="img/next.svg" alt="next" />
+            </button>
+        </div>
     </div>
+    </form>
+
     <?php include "footer.php"; ?>
 </body>
+
 </html>
